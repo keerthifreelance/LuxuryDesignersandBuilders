@@ -18,6 +18,42 @@
   }
 }
 
+/* Luxury Black & Gold Theme Utilities */
+.text-gold {
+  color: #C5A059;
+}
+
+.text-gold-light {
+  color: #E5C158;
+}
+
+.text-gold-bright {
+  color: #D4AF37;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F5E6AD 0%, #D4AF37 40%, #C5A059 70%, #AA771C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold {
+  border-color: rgba(197, 160, 89, 0.35);
+}
+
+.border-gold-glow {
+  border-color: #C5A059;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+}
+
+.bg-gold {
+  background-color: #C5A059;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C5A059 0%, #DFBA67 50%, #B38728 100%);
+}
+
 /* Custom Cursor */
 .cursor-dot {
   width: 8px;

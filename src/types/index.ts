@@ -1,10 +1,13 @@
 export interface ProjectItem {
   id: string;
   title: string;
-  category: 'RESIDENTIAL' | 'INTERIOR' | 'CEILING' | 'KITCHEN' | 'BEDROOM' | 'EXTERIOR' | 'COMMERCIAL';
+  category: 'RESIDENTIAL' | 'INTERIOR' | 'CEILING' | 'KITCHEN' | 'KITCHEN&DINING' | 'BEDROOM' | 'EXTERIOR' | 'COMMERCIAL' | 'CONSTRUCTION' | 'HALL';
   location: string;
   image: string;
+  sideImage?: string;
   renderImage?: string;
+  videoUrl?: string;
+  galleryImages?: string[];
   description: string;
   details?: {
     area?: string;

@@ -112,7 +112,7 @@ export const AboutSection: React.FC = () => {
 
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-white">
             WE DON'T JUST DESIGN SPACES.<br />
-            <span className="italic text-white/60">WE DESIGN HOW YOU LIVE.</span>
+            <span className="italic text-gold-gradient font-normal">WE DESIGN HOW YOU LIVE.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl font-light">
@@ -121,7 +121,7 @@ export const AboutSection: React.FC = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-light text-white block">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-[#C5A059] block">
                 {BRAND_INFO.rating}
               </span>
               <span className="text-xs font-medium tracking-wider text-white/50 uppercase">
@@ -129,7 +129,7 @@ export const AboutSection: React.FC = () => {
               </span>
             </div>
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-light text-white block">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-[#C5A059] block">
                 100%
               </span>
               <span className="text-xs font-medium tracking-wider text-white/50 uppercase">
@@ -137,7 +137,7 @@ export const AboutSection: React.FC = () => {
               </span>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <span className="font-serif text-3xl sm:text-4xl font-light text-white block">
+              <span className="font-serif text-3xl sm:text-4xl font-light text-[#C5A059] block">
                 Turn-key
               </span>
               <span className="text-xs font-medium tracking-wider text-white/50 uppercase">
@@ -149,13 +149,13 @@ export const AboutSection: React.FC = () => {
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="px-8 py-4 bg-white text-black text-xs font-bold tracking-[0.2em] uppercase hover:bg-white/90 transition-all duration-300 interactive-el"
+              className="px-8 py-4 bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black text-xs font-bold tracking-[0.2em] uppercase hover:shadow-[0_0_25px_rgba(197,160,89,0.5)] hover:scale-105 transition-all duration-300 interactive-el"
             >
               DISCOVER OUR FIRM
             </a>
             <a
               href={`tel:${BRAND_INFO.phoneRaw}`}
-              className="px-8 py-4 border border-white/20 text-white text-xs font-bold tracking-[0.2em] uppercase hover:bg-white/10 transition-all duration-300 interactive-el"
+              className="px-8 py-4 border border-[#C5A059] text-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#C5A059]/15 transition-all duration-300 interactive-el"
             >
               TALK TO DESIGNER
             </a>

@@ -1,221 +1,136 @@
-import React, { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BRAND_INFO, STORY_STAGES } from '../data/content';
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Eagerly import all frames as asset URLs using Vite glob import
-const frameModules = import.meta.glob('./scrollvideo/frames/frame_*.jpg', { eager: true });
-const frameUrls = Object.keys(frameModules)
-  .sort()
-  .map((key) => (frameModules[key] as any).default);
-
-const TOTAL_FRAMES = frameUrls.length;
-const TOTAL_SCROLL_FRAMES = 300; // Total frames for scroll progression
+import React, { useState, useEffect, useRef } from 'react';
+import { HERO_SLIDES } from '../data/content';
 
 export const CinematicHero: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
-  const [activeStage, setActiveStage] = useState(STORY_STAGES[0]);
-  const lastFrameRef = useRef(0);
-  const loadedImagesRef = useRef<Map<number, HTMLImageElement>>(new Map());
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const totalSlides = HERO_SLIDES.length;
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (isPaused) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const timer = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
+    }, 4500);
 
-    const drawFrame = (frameNum: number) => {
-      if (!canvas || !ctx) return;
+    return () => clearInterval(timer);
+  }, [isPaused, totalSlides]);
 
-      // Map the 300 scroll frames to the 282 video frames
-      const videoFrameIdx = Math.min(
-        Math.round((frameNum / TOTAL_SCROLL_FRAMES) * (TOTAL_FRAMES - 1)),
-        TOTAL_FRAMES - 1
-      );
+  const goToNextSlide = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
+  };
 
-      // Find the closest loaded frame to avoid black flickers during load
-      let closestFrame = videoFrameIdx;
-      while (closestFrame >= 0 && !loadedImagesRef.current.has(closestFrame)) {
-        closestFrame--;
-      }
-      if (closestFrame < 0) {
-        closestFrame = videoFrameIdx;
-        while (closestFrame < TOTAL_FRAMES && !loadedImagesRef.current.has(closestFrame)) {
-          closestFrame++;
-        }
-      }
+  const goToPrevSlide = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
 
-      const activeImage = loadedImagesRef.current.get(closestFrame);
-      if (!activeImage) return;
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
 
-      const dpr = window.devicePixelRatio || 1;
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
 
-      if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-      }
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isSwipeLeft = distance > 50;
+    const isSwipeRight = distance < -50;
 
-      ctx.save();
-      ctx.scale(dpr, dpr);
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw frame image with object-fit: cover calculation
-      const imgRatio = activeImage.width / activeImage.height;
-      const canvasRatio = width / height;
-
-      let renderWidth = width;
-      let renderHeight = height;
-      let offsetX = 0;
-      let offsetY = 0;
-
-      if (canvasRatio > imgRatio) {
-        renderHeight = width / imgRatio;
-        offsetY = (height - renderHeight) / 2;
-      } else {
-        renderWidth = height * imgRatio;
-        offsetX = (width - renderWidth) / 2;
-      }
-
-      // Apply a subtle dynamic zoom and pan for a cinematic touch
-      const progress = frameNum / TOTAL_SCROLL_FRAMES;
-      const zoom = 1 + progress * 0.04;
-      const panY = (progress - 0.5) * 10;
-
-      ctx.save();
-      ctx.translate(width / 2, height / 2 + panY);
-      ctx.scale(zoom, zoom);
-      ctx.translate(-width / 2, -height / 2);
-
-      ctx.drawImage(activeImage, offsetX, offsetY, renderWidth, renderHeight);
-      ctx.restore();
-
-      // Dark vignette overlay for text legibility
-      const vignette = ctx.createRadialGradient(
-        width / 2,
-        height / 2,
-        Math.min(width, height) * 0.3,
-        width / 2,
-        height / 2,
-        Math.max(width, height) * 0.8
-      );
-      vignette.addColorStop(0, 'rgba(0,0,0,0.25)');
-      vignette.addColorStop(1, 'rgba(0,0,0,0.75)');
-      ctx.fillStyle = vignette;
-      ctx.fillRect(0, 0, width, height);
-
-      ctx.restore();
-    };
-
-    // Preload all frames
-    frameUrls.forEach((url, index) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => {
-        loadedImagesRef.current.set(index, img);
-        if (index === 0 && lastFrameRef.current === 0) {
-          drawFrame(0);
-        }
-      };
-    });
-
-    if (prefersReducedMotion) {
-      drawFrame(TOTAL_SCROLL_FRAMES);
-      return;
+    if (isSwipeLeft) {
+      goToNextSlide();
+    } else if (isSwipeRight) {
+      goToPrevSlide();
     }
 
-    // GSAP ScrollTrigger timeline across pinned hero container
-    const trigger = ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: 'top top',
-      end: '+=700%', // 700vh scroll sequence
-      pin: true,
-      scrub: 0.5,
-      onUpdate: (self) => {
-        const frame = Math.round(self.progress * TOTAL_SCROLL_FRAMES);
-        lastFrameRef.current = frame;
-        setCurrentFrameIndex(frame);
-
-        // Map the current frame index scale to the 900 frame stages in content.ts
-        const lookupFrame = Math.round((frame / TOTAL_SCROLL_FRAMES) * 900);
-        const matchingStage = STORY_STAGES.find(
-          (stage) => lookupFrame >= stage.frameStart && lookupFrame <= stage.frameEnd
-        );
-        if (matchingStage) {
-          setActiveStage(matchingStage);
-        }
-
-        requestAnimationFrame(() => drawFrame(frame));
-      }
-    });
-
-    const handleResize = () => {
-      drawFrame(lastFrameRef.current);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      trigger.kill();
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const showOverlay = currentFrameIndex >= 295;
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   return (
-    <section ref={containerRef} id="hero" className="relative w-full h-screen bg-[#0A0A0A] overflow-hidden text-white">
-      <h1 className="sr-only">Luxury Designers & Builders — Interior Design & Architecture in Aruppukkottai</h1>
+    <section
+      id="hero"
+      className="relative w-full h-screen bg-[#0A0A0A] overflow-hidden text-white select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <h1 className="sr-only">
+        Luxury Designers & Builders — Interior Design & Architecture in Aruppukkottai
+      </h1>
 
-      {/* Sticky Canvas Viewport */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
+      {/* Top Slides Sliding Container */}
+      <div
+        className="absolute inset-0 flex transition-transform duration-700 ease-out w-full h-full z-0"
+        style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
+      >
+        {HERO_SLIDES.map((slide, index) => (
+          <div
+            key={slide.id}
+            className="w-full h-full flex-shrink-0 relative overflow-hidden"
+          >
+            {/* Background Image with Ken Burns Subtle Scale */}
+            <img
+              src={slide.image}
+              alt={`${slide.headlineMain} ${slide.headlineGold}`}
+              className={`w-full h-full object-cover transition-transform duration-[7000ms] ease-out ${
+                index === currentSlideIndex ? 'scale-105' : 'scale-100'
+              }`}
+            />
+            {/* Balanced Vignette Overlay for High Image Clarity + Perfect Text Legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-black/45 to-black/30 z-10" />
+          </div>
+        ))}
+      </div>
 
-      {/* Floating Header Branding - Slides and fades in at frame 295 */}
-      <div className={`absolute top-28 left-6 sm:left-12 md:left-16 z-20 pointer-events-none transition-all duration-700 ease-out hidden sm:block ${
-        showOverlay ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`}>
-        <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-[#C5A059] uppercase block mb-1">
-          Aruppukkottai, Tamil Nadu
+      {/* Floating Top Left Location Badge */}
+      <div className="absolute top-28 left-6 sm:left-12 md:left-16 z-20 hidden sm:block">
+        <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-[#C5A059] uppercase block mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+          {HERO_SLIDES[currentSlideIndex].tagline}
         </span>
-        <span className="font-serif text-sm sm:text-base text-white/80 font-medium tracking-wide">
+        <span className="font-serif text-sm sm:text-base text-white/90 font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           Architecture • Interiors • 3D Visualization • Build
         </span>
       </div>
 
-      {/* Story Text Overlay Container - Slides and fades in at frame 295 */}
-      <div className={`absolute inset-0 z-10 flex flex-col justify-center items-center px-6 text-center transition-all duration-700 ease-out ${
-        showOverlay ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-      }`}>
-        <div className="max-w-4xl mx-auto space-y-4">
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.05] drop-shadow-lg">
-            {activeStage.headline}
+      {/* Active Slide Story Content Container */}
+      <div className="absolute inset-0 z-20 flex flex-col justify-center items-center px-6 text-center">
+        <div className="max-w-4xl mx-auto space-y-5 animate-fade-in p-6 sm:p-8 rounded-none">
+          {/* Badge */}
+          <span className="inline-block px-4 py-1.5 bg-[#0A0A0A]/85 backdrop-blur-md border border-[#C5A059]/40 text-[#C5A059] text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase shadow-lg">
+            {HERO_SLIDES[currentSlideIndex].badge}
+          </span>
+
+          {/* Headline with Gold Accent Contrast */}
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1] [text-shadow:_0_4px_20px_rgba(0,0,0,0.95)]">
+            {HERO_SLIDES[currentSlideIndex].headlineMain}{' '}
+            <span className="text-[#C5A059] font-normal block sm:inline">
+              {HERO_SLIDES[currentSlideIndex].headlineGold}
+            </span>
           </h2>
 
-          <p className="text-sm sm:text-lg md:text-xl font-normal text-white/90 max-w-2xl mx-auto font-sans tracking-wide drop-shadow">
-            {activeStage.subhead}
+          {/* Subhead with High Legibility Contrast Shadow */}
+          <p className="text-sm sm:text-lg md:text-xl font-normal text-white/95 max-w-2xl mx-auto font-sans tracking-wide [text-shadow:_0_2px_12px_rgba(0,0,0,0.95)]">
+            {HERO_SLIDES[currentSlideIndex].subhead}
           </p>
 
-          {/* Action CTAs */}
+          {/* Luxury Gold CTAs */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#contact"
-              className="w-full sm:w-auto px-8 py-4 bg-white text-black text-xs font-bold tracking-[0.2em] uppercase hover:bg-white/90 transition-all duration-300 shadow-2xl interactive-el"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black text-xs font-bold tracking-[0.2em] uppercase hover:shadow-[0_0_30px_rgba(197,160,89,0.6)] hover:scale-105 transition-all duration-300 shadow-2xl interactive-el"
             >
               START YOUR PROJECT
             </a>
             <a
               href="#projects"
-              className="w-full sm:w-auto px-8 py-4 bg-black/50 backdrop-blur-md text-white border border-white/30 text-xs font-bold tracking-[0.2em] uppercase hover:bg-white/10 hover:border-white transition-all duration-300 interactive-el"
+              className="w-full sm:w-auto px-8 py-4 bg-black/60 backdrop-blur-md text-[#C5A059] border border-[#C5A059] text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#C5A059] hover:text-black transition-all duration-300 interactive-el"
             >
               EXPLORE OUR WORK
             </a>
@@ -223,16 +138,50 @@ export const CinematicHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Prompt - Centered and visible only before scrolling is complete */}
-      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none transition-all duration-500 ${
-        currentFrameIndex < 290 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}>
-        <div className="flex items-center space-x-2 text-white/80 animate-bounce">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase">
-            SCROLL TO EXPERIENCE
-          </span>
-          <span className="material-symbols-outlined text-lg">arrow_downward</span>
+      {/* Manual Slide Controls — Left / Right Arrow Buttons */}
+      <button
+        onClick={goToPrevSlide}
+        aria-label="Previous slide"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/50 backdrop-blur-md border border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059] hover:text-black transition-all duration-300 flex items-center justify-center interactive-el rounded-none"
+      >
+        <span className="material-symbols-outlined text-xl">arrow_back</span>
+      </button>
+
+      <button
+        onClick={goToNextSlide}
+        aria-label="Next slide"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/50 backdrop-blur-md border border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059] hover:text-black transition-all duration-300 flex items-center justify-center interactive-el rounded-none"
+      >
+        <span className="material-symbols-outlined text-xl">arrow_forward</span>
+      </button>
+
+      {/* Bottom Bar: Slide Counter & Indicators */}
+      <div className="absolute bottom-8 left-6 sm:left-12 right-6 sm:right-12 z-30 flex justify-between items-center border-t border-white/10 pt-4">
+        {/* Slide Counter */}
+        <div className="text-xs font-mono font-bold tracking-widest text-[#C5A059]">
+          0{currentSlideIndex + 1} <span className="text-white/40">/ 0{totalSlides}</span>
         </div>
+
+        {/* Slide Dots / Bars */}
+        <div className="flex space-x-2">
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlideIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-1.5 transition-all duration-500 interactive-el ${
+                idx === currentSlideIndex
+                  ? 'w-10 bg-[#C5A059] shadow-[0_0_10px_#C5A059]'
+                  : 'w-3 bg-white/30 hover:bg-white/60'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Pause / Play Indicator */}
+        <span className="text-[10px] font-mono tracking-widest text-white/50 hidden sm:block uppercase">
+          {isPaused ? 'PAUSED' : 'AUTO SLIDING'}
+        </span>
       </div>
     </section>
   );

@@ -5,7 +5,17 @@ import { ProjectItem } from '../types';
 export const PortfolioSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [activeModalImage, setActiveModalImage] = useState<string>('');
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const openModal = (project: ProjectItem) => {
+    setActiveModalProject(project);
+    if (project.videoUrl) {
+      setActiveModalImage(project.videoUrl);
+    } else {
+      setActiveModalImage(project.image);
+    }
+  };
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -23,13 +33,13 @@ export const PortfolioSection: React.FC = () => {
     return () => window.removeEventListener('setPortfolioCategory', handleCategoryChange);
   }, []);
 
-  const categories = ['ALL', 'RESIDENTIAL', 'INTERIOR', 'CEILING', 'KITCHEN', 'BEDROOM', 'EXTERIOR', 'COMMERCIAL'];
+  const categories = ['ALL', 'RESIDENTIAL', 'INTERIOR', 'HALL', 'CEILING', 'KITCHEN', 'BEDROOM', 'EXTERIOR', 'COMMERCIAL'];
 
   const filteredProjects = activeCategory === 'ALL'
     ? PROJECTS
     : activeCategory === 'RESIDENTIAL'
-      ? PROJECTS.filter((p) => p.category === 'RESIDENTIAL' || p.category === 'EXTERIOR')
-      : PROJECTS.filter((p) => p.category === activeCategory);
+      ? PROJECTS.filter((p) => p.id !== 'proj-video-1' && (p.category === 'RESIDENTIAL' || p.category === 'EXTERIOR'))
+      : PROJECTS.filter((p) => p.id !== 'proj-video-1' && p.category === activeCategory);
 
   return (
     <section id="projects" className="py-28 md:py-36 bg-[#0A0A0A] text-[#F5F5F5] border-t border-white/10">
@@ -38,74 +48,118 @@ export const PortfolioSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <span className="text-xs font-bold tracking-[0.2em] text-[#C5A059] uppercase block mb-2">
-              PORTFOLIO & ARCHIVES
+              FEATURED PORTFOLIO
             </span>
-            <h2 className="font-serif text-3xl sm:text-5xl font-light leading-tight text-white">
-              OUR WORKS
+            <h2 className="font-serif text-3xl sm:text-5xl font-light text-white">
+              CRAFTED WITH PRECISION
             </h2>
           </div>
           <p className="text-sm sm:text-base text-white/60 max-w-md font-light">
-            A curated selection of modern residential villas, luxury kitchens, bedrooms, and commercial structures across Aruppukkottai and Tamil Nadu.
+            Explore our architectural blueprints, luxury interiors, 3D renderings, and turnkey physical executions.
           </p>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex items-center space-x-2 overflow-x-auto pb-6 no-scrollbar mb-10 border-b border-white/10 scroll-smooth">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 whitespace-nowrap interactive-el ${
-                activeCategory === cat
-                  ? 'bg-white text-black'
-                  : 'bg-transparent text-white/50 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* Category Pills Slider */}
+        <div className="relative mb-12 flex items-center">
+          <button
+            onClick={() => scroll('left')}
+            className="md:hidden z-15 p-2 mr-2 bg-[#181818] text-white border border-white/10 hover:border-[#C5A059] transition-colors rounded-full"
+            aria-label="Scroll categories left"
+          >
+            <span className="material-symbols-outlined text-sm">chevron_left</span>
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex items-center space-x-2 overflow-x-auto scrollbar-none py-2 scroll-smooth px-1"
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap interactive-el ${activeCategory === cat
+                    ? 'bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black shadow-[0_0_15px_rgba(197,160,89,0.4)]'
+                    : 'bg-[#181818] text-white/70 hover:text-white border border-white/10 hover:border-[#C5A059]/40'
+                  }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => scroll('right')}
+            className="md:hidden z-15 p-2 ml-2 bg-[#181818] text-white border border-white/10 hover:border-[#C5A059] transition-colors rounded-full"
+            aria-label="Scroll categories right"
+          >
+            <span className="material-symbols-outlined text-sm">chevron_right</span>
+          </button>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Portfolio Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              onClick={() => setActiveModalProject(project)}
-              className="group relative bg-[#121212] border border-white/10 overflow-hidden cursor-pointer shadow-sm hover:border-white/30 hover:shadow-2xl transition-all duration-500 explore-el"
+              onClick={() => openModal(project)}
+              className="group relative bg-[#121212] border border-white/10 overflow-hidden cursor-pointer explore-el hover:border-[#C5A059]/50 transition-all duration-500 shadow-xl"
             >
-              {/* Image Container */}
-              <div className="relative h-[360px] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale-[20%] group-hover:grayscale-0"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              {/* Image / Direct Video Container */}
+              <div className="relative h-72 sm:h-80 overflow-hidden">
+                {project.videoUrl ? (
+                  <video
+                    src={project.videoUrl}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                  </>
+                )}
 
-                {/* Top Badge */}
-                <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white border border-white/10 text-[10px] font-bold tracking-[0.2em] px-3 py-1 uppercase">
-                  {project.category}
+                {/* Category Badge */}
+                <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm border border-[#C5A059]/40 text-[#C5A059] text-[10px] font-bold px-3 py-1 uppercase tracking-widest pointer-events-none z-10">
+                  {project.videoUrl ? 'WALKTHROUGH VIDEO' : project.category}
                 </span>
 
-                {/* Hover Reveal Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="px-5 py-2.5 bg-white text-black text-xs font-bold tracking-widest uppercase shadow-xl">
-                    VIEW PROJECT
+                {/* Side Image Badge Indicator */}
+                {!project.videoUrl && (project.sideImage || project.renderImage || (project.galleryImages && project.galleryImages.length > 0)) && (
+                  <span className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-2 py-1 uppercase flex items-center space-x-1 pointer-events-none z-10">
+                    <span className="material-symbols-outlined text-xs text-[#C5A059]">collections</span>
+                    <span>VIEWS AVAILABLE</span>
                   </span>
-                </div>
+                )}
+
+                {/* Hover Badge */}
+                {!project.videoUrl && (
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                    <span className="px-5 py-2.5 bg-[#C5A059] text-black text-xs font-bold tracking-widest uppercase">
+                      VIEW PROJECT & VIEWS
+                    </span>
+                  </div>
+                )}
               </div>
 
-              {/* Bottom Card Meta */}
-              <div className="p-6 space-y-2 bg-[#121212]">
-                <div className="flex justify-between items-center text-xs font-mono text-white/50">
+              {/* Card Footer Content */}
+              <div className="p-6 space-y-2">
+                <div className="flex items-center justify-between text-xs text-white/50 font-mono">
                   <span>{project.location}</span>
-                  {project.details?.style && <span>{project.details.style}</span>}
+                  {project.details?.style && <span className="text-[#C5A059]">{project.details.style}</span>}
                 </div>
-                <h3 className="font-serif text-2xl font-medium text-white group-hover:text-white/80 transition-colors">
+                <h3 className="font-serif text-xl font-medium text-white group-hover:text-[#C5A059] transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-xs text-white/60 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-white/60 line-clamp-2 font-light">
                   {project.description}
                 </p>
               </div>
@@ -114,15 +168,15 @@ export const PortfolioSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Lightbox / Project Details Modal */}
+      {/* Lightbox / Project Details Modal with Side View Switcher */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fade-in">
-          <div className="bg-[#121212] text-white max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 border border-white/20 relative shadow-2xl space-y-6">
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fade-in">
+          <div className="bg-[#121212] text-white max-w-4xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-10 border border-[#C5A059]/40 relative shadow-2xl space-y-6">
             <button
               onClick={() => setActiveModalProject(null)}
-              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-[#C5A059] hover:text-black text-white transition-all flex items-center justify-center interactive-el"
             >
-              <span className="material-symbols-outlined text-2xl">close</span>
+              <span className="material-symbols-outlined text-xl">close</span>
             </button>
 
             <div className="space-y-1">
@@ -134,32 +188,221 @@ export const PortfolioSection: React.FC = () => {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[320px] sm:h-[400px]">
-              <div className="relative h-full overflow-hidden border border-white/10">
-                <img
-                  src={activeModalProject.image}
-                  alt={activeModalProject.title}
-                  className="w-full h-full object-cover"
+            {/* Main Interactive View Window (Image or Video) */}
+            <div className="relative w-full h-[340px] sm:h-[480px] overflow-hidden border border-white/20 bg-black flex items-center justify-center">
+              {activeModalImage && activeModalImage.endsWith('.mp4') ? (
+                <video
+                  src={activeModalImage}
+                  controls
+                  autoPlay
+                  loop
+                  playsInline
+                  className="w-full h-full object-contain"
                 />
-                <span className="absolute bottom-3 left-3 bg-black/80 border border-white/10 text-white text-[10px] font-bold px-2 py-1 uppercase">
-                  COMPLETED EXECUTION
+              ) : (
+                <img
+                  src={activeModalImage || activeModalProject.image}
+                  alt={activeModalProject.title}
+                  className="w-full h-full object-contain transition-all duration-500"
+                />
+              )}
+              <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md border border-[#C5A059]/50 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest flex items-center space-x-2 pointer-events-none z-10">
+                <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
+                <span>
+                  {activeModalImage && activeModalImage.endsWith('.mp4')
+                    ? 'WALKTHROUGH VIDEO'
+                    : activeModalImage === activeModalProject.sideImage
+                      ? 'SIDE ELEVATION VIEW'
+                      : activeModalImage === activeModalProject.renderImage
+                        ? 'INITIAL 3D RENDER'
+                        : 'MAIN ELEVATION VIEW'}
                 </span>
               </div>
-              {activeModalProject.renderImage && (
-                <div className="relative h-full overflow-hidden border border-white/10 hidden md:block">
-                  <img
-                    src={activeModalProject.renderImage}
-                    alt={`${activeModalProject.title} 3D Render`}
-                    className="w-full h-full object-cover"
-                  />
-                  <span className="absolute bottom-3 left-3 bg-black/80 border border-white/10 text-white text-[10px] font-bold px-2 py-1 uppercase">
-                    INITIAL 3D RENDER
-                  </span>
-                </div>
-              )}
             </div>
 
-            <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+            {/* Side Images, Video & Gallery Thumbnails Selector */}
+            {activeModalProject && (
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-[#C5A059] uppercase block">
+                  AVAILABLE VIEWS & SIDE IMAGES (CLICK TO SWITCH):
+                </span>
+                <div className="flex items-center space-x-3 overflow-x-auto pb-2 scrollbar-none">
+                  {/* Main View Thumbnail */}
+                  <button
+                    onClick={() => setActiveModalImage(activeModalProject.image)}
+                    className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 ${(activeModalImage || activeModalProject.image) === activeModalProject.image
+                        ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
+                        : 'border-white/20 opacity-60 hover:opacity-100'
+                      }`}
+                  >
+                    <img src={activeModalProject.image} alt="Main View" className="w-full h-full object-cover" />
+                    <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-white uppercase">
+                      MAIN VIEW
+                    </span>
+                  </button>
+
+                  {/* Walkthrough Video Thumbnail */}
+                  {activeModalProject.videoUrl && (
+                    <button
+                      onClick={() => setActiveModalImage(activeModalProject.videoUrl!)}
+                      className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 bg-[#181818] flex flex-col items-center justify-center ${activeModalImage === activeModalProject.videoUrl
+                          ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
+                          : 'border-white/20 opacity-60 hover:opacity-100'
+                        }`}
+                    >
+                      <span className="material-symbols-outlined text-2xl text-[#C5A059]">play_circle</span>
+                      <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-[#C5A059] uppercase">
+                        PROJECT VIDEO
+                      </span>
+                    </button>
+                  )}
+
+                  {/* Dedicated Side Image View Thumbnail if exists */}
+                  {activeModalProject.sideImage && (
+                    <button
+                      onClick={() => setActiveModalImage(activeModalProject.sideImage!)}
+                      className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 ${activeModalImage === activeModalProject.sideImage
+                          ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
+                          : 'border-white/20 opacity-60 hover:opacity-100'
+                        }`}
+                    >
+                      <img src={activeModalProject.sideImage} alt="Side View" className="w-full h-full object-cover" />
+                      <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-[#C5A059] uppercase">
+                        SIDE VIEW 1
+                      </span>
+                    </button>
+                  )}
+
+                  {/* 3D Render View Thumbnail */}
+                  {activeModalProject.renderImage && (
+                    <button
+                      onClick={() => setActiveModalImage(activeModalProject.renderImage!)}
+                      className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 ${activeModalImage === activeModalProject.renderImage
+                          ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
+                          : 'border-white/20 opacity-60 hover:opacity-100'
+                        }`}
+                    >
+                      <img src={activeModalProject.renderImage} alt="3D Render View" className="w-full h-full object-cover" />
+                      <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-white uppercase">
+                        3D RENDER
+                      </span>
+                    </button>
+                  )}
+
+                  {/* 5 to 10 Category Side Images Thumbnails */}
+                  {(() => {
+                    let sideList: string[] = [];
+                    if (activeModalProject.galleryImages && activeModalProject.galleryImages.length > 0) {
+                      sideList = activeModalProject.galleryImages;
+                    } else {
+                      switch (activeModalProject.category) {
+                        case 'INTERIOR':
+                          sideList = [
+                            '/images/pics/workpics/INTERIOR1.jpeg',
+                            '/images/pics/workpics/INTERIOR2.jpeg',
+                            '/images/pics/workpics/INTERIOR3.jpeg',
+                            '/images/pics/workpics/INTERIOR4.jpeg',
+                            '/images/pics/workpics/INTERIOR5.jpeg',
+                            '/images/pics/workpics/INTERIOR6.jpeg',
+                            '/images/pics/workpics/INTERIOR7.jpeg',
+                            '/images/pics/workpics/INTERIOR8.jpeg',
+                            '/images/pics/workpics/INTERIOR9.jpeg',
+                            '/images/pics/workpics/INTERIOR10.jpeg'
+                          ];
+                          break;
+                        case 'EXTERIOR':
+                        case 'RESIDENTIAL':
+                          sideList = [
+                            '/images/pics/workpics/EXTERIOR15.jpeg',
+                            '/images/pics/workpics/EXTERIOR16.jpeg',
+                            '/images/pics/workpics/EXTERIOR17side.jpeg',
+                            '/images/pics/workpics/EXTERIOR18side.jpeg',
+                            '/images/pics/workpics/EXTERIOR21.png',
+                            '/images/pics/workpics/EXTERIOR22.png',
+                            '/images/pics/workpics/EXTERIOR23.jpeg',
+                            '/images/pics/workpics/EXTERIOR24.jpeg',
+                            '/images/pics/workpics/EXTERIOR25.jpeg',
+                            '/images/pics/workpics/EXTERIOR26.png'
+                          ];
+                          break;
+                        case 'CEILING':
+                          sideList = [
+                            '/images/pics/workpics/CEILING1.jpeg',
+                            '/images/pics/workpics/CEILING2.jpeg',
+                            '/images/pics/workpics/CEILING3.jpeg',
+                            '/images/pics/workpics/CEILING4.jpeg',
+                            '/images/pics/workpics/CEILING5.jpeg',
+                            '/images/pics/workpics/CEILING6.jpeg',
+                            '/images/pics/workpics/CEILING7.jpeg',
+                            '/images/pics/workpics/CEILING8.jpeg',
+                            '/images/pics/workpics/CEILING9.jpeg',
+                            '/images/pics/workpics/CEILING10.jpeg'
+                          ];
+                          break;
+                        case 'KITCHEN':
+                          sideList = [
+                            '/images/pics/workpics/KITCHEN1.jpeg',
+                            '/images/pics/workpics/KITCHEN2.jpeg',
+                            '/images/pics/workpics/KITCHEN3.jpeg',
+                            '/images/pics/workpics/KITCHEN4.jpeg',
+                            '/images/pics/workpics/KITCHEN5.jpeg',
+                            '/images/pics/workpics/KITCHEN6.jpeg'
+                          ];
+                          break;
+                        case 'BEDROOM':
+                          sideList = [
+                            '/images/pics/workpics/BEDROOM1.jpeg',
+                            '/images/pics/workpics/BEDROOM2.jpeg',
+                            '/images/pics/workpics/BEDROOM3.jpeg',
+                            '/images/pics/workpics/INTERIOR4.jpeg',
+                            '/images/pics/workpics/INTERIOR7.jpeg'
+                          ];
+                          break;
+                        case 'HALL':
+                          sideList = [
+                            '/images/pics/workpics/HALL1.jpeg',
+                            '/images/pics/workpics/HALL2.jpeg'
+                          ];
+                          break;
+                        case 'COMMERCIAL':
+                          sideList = [
+                            '/images/pics/workpics/COMMERCIAL1.jpeg',
+                            '/images/pics/workpics/COMMERCIAL2.jpeg',
+                            '/images/pics/workpics/COMMERCIAL3.jpeg',
+                            '/images/pics/workpics/COMMERCIAL4.jpeg',
+                            '/images/pics/workpics/COMMERCIAL5.jpeg',
+                            '/images/pics/workpics/COMMERCIAL6.png',
+                            '/images/pics/workpics/COMMERCIAL7.png'
+                          ];
+                          break;
+                      }
+                    }
+
+                    const filteredSideList = sideList.filter(
+                      (url) => url !== activeModalProject.image && url !== activeModalProject.sideImage && url !== activeModalProject.renderImage
+                    );
+
+                    return filteredSideList.map((imgUrl, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveModalImage(imgUrl)}
+                        className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 ${activeModalImage === imgUrl
+                            ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
+                            : 'border-white/20 opacity-60 hover:opacity-100'
+                          }`}
+                      >
+                        <img src={imgUrl} alt={`Side View ${idx + 2}`} className="w-full h-full object-cover" />
+                        <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-white uppercase">
+                          SIDE VIEW {idx + 2}
+                        </span>
+                      </button>
+                    ));
+                  })()}
+                </div>
+              </div>
+            )}
+
+            <p className="text-sm sm:text-base text-white/70 leading-relaxed font-light">
               {activeModalProject.description}
             </p>
 
@@ -168,7 +411,7 @@ export const PortfolioSection: React.FC = () => {
                 {activeModalProject.details.area && (
                   <div>
                     <span className="text-[10px] font-bold text-white/50 uppercase block">AREA</span>
-                    <span className="font-serif text-base font-medium text-white">{activeModalProject.details.area}</span>
+                    <span className="font-serif text-base font-medium text-[#C5A059]">{activeModalProject.details.area}</span>
                   </div>
                 )}
                 {activeModalProject.details.duration && (
@@ -191,7 +434,7 @@ export const PortfolioSection: React.FC = () => {
               <a
                 href="#contact"
                 onClick={() => setActiveModalProject(null)}
-                className="px-6 py-3 bg-white text-black text-xs font-bold tracking-widest uppercase hover:bg-white/90 transition-colors"
+                className="px-6 py-3 bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black text-xs font-bold tracking-widest uppercase hover:scale-105 transition-transform"
               >
                 REQUEST SIMILAR PROJECT
               </a>

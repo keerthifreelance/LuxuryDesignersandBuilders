@@ -7,14 +7,124 @@ export const BRAND_INFO = {
   phoneDisplay: '96004 70328',
   phoneRaw: '09600470328',
   phoneIntl: '+919600470328',
-  address: 'Lakshmi Nagar, 5/377, West St, Kalloorani, Aruppukkottai, Tamil Nadu 626105',
+  address: '5/377, Lakshmi Nagar, West St, Kalloorani, Aruppukattai, Virudhunagar (dt), Tamil Nadu 626105.',
   city: 'Aruppukkottai',
   state: 'Tamil Nadu',
   rating: '5.0 ★',
   reviewsCount: '19 Google Reviews',
-  mapDirectionsUrl: 'https://maps.google.com/?q=Lakshmi+Nagar+Kalloorani+Aruppukkottai+Tamil+Nadu+626105',
-  whatsappUrl: 'https://wa.me/919600470328?text=Hello%20Luxury%20Designers%20%26%20Builders%2C%20I%20would%20like%20to%20inquire%20about%20a%20project.'
+  mapDirectionsUrl: 'https://www.google.com/maps/place/Luxury+Designers+and+Builders/@9.6384453,77.9810139,13z/data=!4m6!3m5!1s0x3b013bc3007cf8e5:0x22c142536e2caf66!8m2!3d9.6384453!4d77.9810139!16s%2Fg%2F11w4y3_0c4',
+  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251960.52187299076!2d77.98101389989456!3d9.638445305819042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b013bc3007cf8e5%3A0x22c142536e2caf66!2sLuxury%20Designers%20and%20Builders!5e1!3m2!1sen!2sin!4v1786681804426!5m2!1sen!2sin',
+  whatsappUrl: 'https://wa.me/919600470328?text=Hello%20Luxury%20Designers%20%26%20Builders%2C%20I%20would%20like%20to%20inquire%20about%20a%20project.',
+  facebookUrl: 'https://www.facebook.com/luxurybuilders07?rdid=zdH4W6reMLpx78Ox&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Gvwiyr1HS%2F#',
+  instagramUrl: 'https://www.instagram.com/luxury_designers_builders/?hl=en'
 };
+
+export const FOUNDER_INFO = {
+  name: 'Er. Raj karan M',
+  title: 'Founder & Principal Civil Engineer',
+  experience: '8+ Years',
+  image: '/images/profile.png',
+  bio: 'With over 8+ years of dedicated civil engineering and architectural planning experience, Er. Raj karan M founded Luxury Designers & Builders with a vision to bridge imaginative architectural concepts with flawless Vastu-compliant physical construction in Aruppukkottai and across Tamil Nadu.',
+  fullBio: 'Er. Raj karan M brings deep structural engineering rigor, Vastu Shastra expertise, and advanced 3D rendering precision to every project. Having spearheaded over 150+ residential villas, luxury interior transformations, and commercial developments, he ensures 100% design fidelity matching approved renders into final turnkey completion.',
+  quote: "Architecture is not merely about concrete and steel—it is the art of crafting spaces where families build memories, businesses thrive, and dreams come to life with absolute trust.",
+  stats: [
+    { label: 'EXPERIENCE', value: '8+ Yrs' },
+    { label: 'PROJECTS BUILT', value: '150+' },
+    { label: 'VASTU COMPLIANCE', value: '100%' },
+    { label: 'CLIENT RATING', value: '5.0 ★' }
+  ],
+  specialties: [
+    'Vastu Shastra 2D Architectural Blueprinting',
+    'Structural & Civil Engineering Management',
+    'Photorealistic 3D Render-to-Reality Execution',
+    'Bespoke Luxury Interior Architecture & Styling',
+    'End-to-End Turnkey Civil Construction'
+  ]
+};
+
+export const HERO_SLIDES = [
+  {
+    id: 1,
+    image: '/images/pics/topslides/heroslide1.jpeg',
+    tagline: 'ARUPPUKKOTTAI • ARCHITECTURE & INTERIORS',
+    headlineMain: 'FROM VISION TO',
+    headlineGold: 'REALITY.',
+    subhead: 'We design your dream space with precision Vastu planning, 3D visualization, and turnkey build excellence.',
+    badge: 'LUXURY DESIGNERS & BUILDERS'
+  },
+  {
+    id: 2,
+    image: '/images/pics/topslides/heroslide2.jpeg',
+    tagline: 'BESPOKE INTERIOR ARCHITECTURE',
+    headlineMain: 'ELEGANCE IN',
+    headlineGold: 'EVERY DETAIL.',
+    subhead: 'Custom ceiling design, mood lighting, and curated premium finishes tailored around your personality.',
+    badge: 'LUXURY LIVING & INTERIORS'
+  },
+  {
+    id: 3,
+    image: '/images/pics/topslides/heroslide3.jpeg',
+    tagline: 'VASTU-COMPLIANT ARCHITECTURE',
+    headlineMain: 'CRAFTED WITH',
+    headlineGold: 'MATERIAL HONESTY.',
+    subhead: 'Harmonious spatial distribution, natural ventilation, and timeless elevation aesthetics for modern luxury homes.',
+    badge: 'ARCHITECTURAL EXCELLENCE'
+  },
+  {
+    id: 4,
+    image: '/images/pics/topslides/heroslide4.jpeg',
+    tagline: 'PHOTOREALISTIC 3D VISUALIZATION',
+    headlineMain: 'SEE IT BEFORE',
+    headlineGold: 'WE BUILD IT.',
+    subhead: 'Experience 100% architectural fidelity matching approved 3D renders into final physical construction.',
+    badge: '3D TO REALITY'
+  },
+  {
+    id: 5,
+    image: '/images/pics/topslides/heroslide5.jpeg',
+    tagline: 'MODULAR KITCHENS & SUITES',
+    headlineMain: 'FUNCTIONALITY MEETS',
+    headlineGold: 'OPULENCE.',
+    subhead: 'Ergonomic kitchen design, acrylic cabinetry, utility storage, and seamless marble countertops.',
+    badge: 'MODULAR KITCHEN SPECIALISTS'
+  },
+  {
+    id: 6,
+    image: '/images/pics/topslides/heroslide6.jpeg',
+    tagline: 'BEDROOMS & PRIVATE SANCTUARIES',
+    headlineMain: 'TRANQUIL &',
+    headlineGold: 'REFINED SPACES.',
+    subhead: 'Bespoke bedroom wardrobes, upholstered headboards, and accent lighting for ultimate relaxation.',
+    badge: 'LUXURY BEDROOM INTERIORS'
+  },
+  {
+    id: 7,
+    image: '/images/pics/topslides/heroslide7.jpeg',
+    tagline: 'EXTERIOR ELEVATIONS & FACADES',
+    headlineMain: 'MONUMENTAL',
+    headlineGold: 'CURB APPEAL.',
+    subhead: 'Architectural facade lighting, contemporary stone cladding, and distinctive structural silhouettes.',
+    badge: 'EXTERIOR DESIGN'
+  },
+  {
+    id: 8,
+    image: '/images/pics/topslides/heroslide8.jpeg',
+    tagline: 'TURNKEY CONSTRUCTION MANAGEMENT',
+    headlineMain: 'WE BUILD',
+    headlineGold: 'YOUR TRUST.',
+    subhead: 'End-to-end site management, civil engineering rigor, quality material procurement, and timely delivery.',
+    badge: 'TURNKEY DESIGN & BUILD'
+  },
+  {
+    id: 9,
+    image: '/images/pics/topslides/heroslide9.jpeg',
+    tagline: 'COMMERCIAL & CORPORATE SPACES',
+    headlineMain: 'PRESTIGIOUS',
+    headlineGold: 'CORPORATE ENVIRONMENTS.',
+    subhead: 'Modern reception showcases, executive cabin partitions, and high-impact retail shopfront designs.',
+    badge: 'COMMERCIAL ARCHITECTURE'
+  }
+];
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -80,10 +190,59 @@ export const SERVICES: ServiceItem[] = [
     fullDesc: 'Creating structural depth and elegance with gypsum styling, acoustic panel installations, modular wooden coves, and energy-efficient light planning.',
     iconName: 'layers',
     image: '/images/pics/workpics/CEILING1.jpeg'
+  },
+  {
+    number: '09',
+    title: 'Hall Design',
+    shortDesc: 'Bespoke grand living hall styling, custom TV wall paneling, and foyer screens.',
+    fullDesc: 'Crafting luxurious double-height main halls, acoustic wall louvers, custom marble TV units, and ambient indirect cove lighting for royal living spaces.',
+    iconName: 'chair',
+    image: '/images/pics/workpics/HALL1.jpeg'
   }
 ];
 
+export interface ServiceChargeItem {
+  id: number;
+  service: string;
+  rate: string;
+  highlight?: boolean;
+}
+
+export const SERVICE_CHARGES: ServiceChargeItem[] = [
+  { id: 1, service: '2D FLOOR PLAN (BASIC)', rate: 'Rs. 1 / SQ.FT' },
+  { id: 2, service: '2D FLOOR PLAN (WITH FURNITURE)', rate: 'Rs. 1.5 / SQ.FT' },
+  { id: 3, service: '3D FLOOR PLAN', rate: 'Rs. 3 / SQ.FT' },
+  { id: 4, service: 'STRUCTURAL DESIGN', rate: 'Rs. 5 / SQ.FT' },
+  { id: 5, service: 'INTERIOR DESIGN', rate: 'Rs. 20 / SQ.FT', highlight: true },
+  { id: 6, service: 'FRONT ELEVATION DESIGN', rate: 'Rs. 10 / SQ.FT' },
+  { id: 7, service: '3D WALKTHROUGH ANIMATION', rate: 'Rs. 2000 / MIN' },
+  { id: 8, service: 'CONSTRUCTION CONSULTANTS', rate: 'CUSTOM QUOTE', highlight: true }
+];
+
 export const PROJECTS: ProjectItem[] = [
+  {
+    id: 'proj-video-1',
+    title: '3D Architecture & Interior Walkthrough',
+    category: 'COMMERCIAL',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/COMMERCIAL1.jpeg',
+    videoUrl: '/images/pics/workpics2/video1.mp4',
+    sideImage: '/images/pics/workpics/EXTERIOR17side.jpeg',
+    galleryImages: [
+      '/images/pics/workpics/EXTERIOR15.jpeg',
+      '/images/pics/workpics/EXTERIOR16.jpeg',
+      '/images/pics/workpics/EXTERIOR17side.jpeg',
+      '/images/pics/workpics/EXTERIOR18side.jpeg',
+      '/images/pics/workpics/EXTERIOR21.png',
+      '/images/pics/workpics/EXTERIOR22.png',
+      '/images/pics/workpics/EXTERIOR23.jpeg',
+      '/images/pics/workpics/EXTERIOR24.jpeg',
+      '/images/pics/workpics/EXTERIOR25.jpeg',
+      '/images/pics/workpics/EXTERIOR26.png'
+    ],
+    description: 'Exclusive 3D walkthrough video showcasing architectural elevation execution, interior spatial planning, structural detailing, and construction quality.',
+    details: { area: '3,800 Sq.Ft', duration: 'Full HD Video', style: '3D Walkthrough' }
+  },
   {
     id: 'proj-1',
     title: 'Kalloorani Heritage Residence',
@@ -129,6 +288,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR1.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR15.jpeg',
     description: 'Contemporary multi-tiered facade with floating cantilever slabs, ambient warm architectural sconces, and automated gate entry.',
     details: { area: '5,000 Sq.Ft', duration: '14 Months', style: 'Contemporary Luxury' }
   },
@@ -138,7 +298,6 @@ export const PROJECTS: ProjectItem[] = [
     category: 'COMMERCIAL',
     location: 'Virudhunagar, TN',
     image: '/images/pics/workpics/COMMERCIAL1.jpeg',
-    renderImage: '/images/pics/workpics/2.png',
     description: 'Modern office space with acoustic glass partitions, ergonomic workstation layouts, and executive meeting lounges.',
     details: { area: '3,600 Sq.Ft', duration: '6 Months', style: 'Corporate Modern' }
   },
@@ -247,6 +406,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR2.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR16.jpeg',
     description: 'Modern elevation facade showcasing architectural geometry, textured plaster surfaces, and elegant warm lighting.',
     details: { area: '3,200 Sq.Ft', duration: '10 Months', style: 'Modern Contemporary' }
   },
@@ -256,6 +416,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR3.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR21.png',
     description: 'A striking multi-tier facade layout designed with parametric wood panels and dark stone cladding details.',
     details: { area: '4,000 Sq.Ft', duration: '12 Months', style: 'Premium Luxury' }
   },
@@ -265,6 +426,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR4.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR22.png',
     description: 'A clean and elegant luxury residential facade with floating cantilever slabs and structural metal screens.',
     details: { area: '4,800 Sq.Ft', duration: '14 Months', style: 'Modern Vernacular' }
   },
@@ -274,6 +436,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR5.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR23.jpeg',
     description: 'Contemporary facade detailing using linear wood panels, concrete plaster, and integrated perimeter coves.',
     details: { area: '3,500 Sq.Ft', duration: '11 Months', style: 'Contemporary Minimalist' }
   },
@@ -283,6 +446,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR6.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR24.jpeg',
     description: 'High-concept double-height living room elevation facade with large glazed windows and structural louvers.',
     details: { area: '5,200 Sq.Ft', duration: '16 Months', style: 'High-End Modern' }
   },
@@ -292,6 +456,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR7.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR25.jpeg',
     description: 'Facade design featuring custom spotlights, warm architectural uplighting, and smooth cream-toned textures.',
     details: { area: '2,800 Sq.Ft', duration: '9 Months', style: 'Warm Contemporary' }
   },
@@ -301,6 +466,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR8.png',
+    sideImage: '/images/pics/workpics/EXTERIOR26.png',
     description: 'Heavy structural stone-cladding facade details combined with matte metal trim and automated gates.',
     details: { area: '4,600 Sq.Ft', duration: '13 Months', style: 'Rustic Modern' }
   },
@@ -310,6 +476,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR9.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR27.jpeg',
     description: 'A traditional yet modern residential facade layout showcasing custom teak louvers and natural stone tiles.',
     details: { area: '3,800 Sq.Ft', duration: '12 Months', style: 'Vernacular Modern' }
   },
@@ -319,6 +486,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR10.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR28.jpeg',
     description: 'A structural masterpiece featuring bold floating cantilever slabs, glass balustrades, and structural steel coving.',
     details: { area: '6,200 Sq.Ft', duration: '18 Months', style: 'Deconstructivist Modern' }
   },
@@ -328,6 +496,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR11.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR29.jpeg',
     description: 'Elegant home elevation incorporating frameless glass balconies, dark metallic accents, and modular panels.',
     details: { area: '4,100 Sq.Ft', duration: '14 Months', style: 'Contemporary Elite' }
   },
@@ -337,6 +506,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR12.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR30.jpeg',
     description: 'Designed for compact urban plots, this facade maximizes height and lighting with vertical slats and profile lights.',
     details: { area: '2,400 Sq.Ft', duration: '8 Months', style: 'Compact Modern' }
   },
@@ -346,6 +516,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR13.png',
+    sideImage: '/images/pics/workpics/EXTERIOR31.jpeg',
     description: 'Custom exterior cladding featuring rugged sandstone finishes contrasted with linear black iron window grids.',
     details: { area: '3,700 Sq.Ft', duration: '11 Months', style: 'Industrial Contemporary' }
   },
@@ -355,6 +526,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR14.png',
+    sideImage: '/images/pics/workpics/EXTERIOR32.jpeg',
     description: 'A bold, single-volume monolithic exterior design utilizing premium white concrete panels and deep inset windows.',
     details: { area: '4,500 Sq.Ft', duration: '13 Months', style: 'Monolithic Modern' }
   },
@@ -490,7 +662,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'RESIDENTIAL',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/CONSTRUCTION2.jpeg',
-    description: 'Structural framing phase showcasing site excavation, brick wall brickwork construction, and foundation concrete checks.',
+    description: 'Structural framing phase showcasing site excavation, brick wall masonry construction, and foundation concrete checks.',
     details: { area: '2,800 Sq.Ft', duration: 'Ongoing', style: 'Foundation Civil' }
   },
   {
@@ -512,15 +684,6 @@ export const PROJECTS: ProjectItem[] = [
     details: { area: '350 Sq.Ft', duration: '15 Days', style: 'Sleek Corporate' }
   },
   {
-    id: 'proj-48',
-    title: 'Corporate Reception Showcase',
-    category: 'COMMERCIAL',
-    location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/COMMERCIAL3.jpeg',
-    description: 'Minimalist corporate lobby partition wall featuring premium laminate finishes, trophy display shelves, and integrated warm coving.',
-    details: { area: '320 Sq.Ft', duration: '1 Month', style: 'Modern Reception' }
-  },
-  {
     id: 'proj-49',
     title: 'Minimalist White Kitchen',
     category: 'KITCHEN',
@@ -538,41 +701,436 @@ export const PROJECTS: ProjectItem[] = [
     description: 'Active brick wall partition and window lintel installation phase, showing clean cement sand ratios.',
     details: { area: '3,100 Sq.Ft', duration: 'Ongoing', style: 'Brick Masonry' }
   },
+
   {
-    id: 'proj-51',
-    title: 'Premium Retail Commercial Facade',
+    id: 'proj-52',
+    title: 'Ongoing Residential Civil Construction 5',
+    category: 'RESIDENTIAL',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/CONSTRUCTION5.jpeg',
+    description: 'Active residential civil foundation excavation, steel mesh framing, and structural concrete pouring phase.',
+    details: { area: '4,500 Sq.Ft', duration: 'Ongoing', style: 'Reinforced Concrete' }
+  },
+  {
+    id: 'proj-[#C5A059]-17',
+    title: 'Parametric Villa Facade & Side Elevation',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR17.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR17side.jpeg',
+    description: 'A multi-perspective luxury villa elevation showcasing warm architectural lighting, parametric louvers, and a complete side elevation view.',
+    details: { area: '4,800 Sq.Ft', duration: '12 Months', style: 'Modern Vernacular' }
+  },
+  {
+    id: 'proj-18-ext',
+    title: 'Double-Height Facade & Side Perspective',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR18.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR18side.jpeg',
+    description: 'Double-height living space facade detailing with floating balconies, teak wood accents, and side perspective layout.',
+    details: { area: '5,100 Sq.Ft', duration: '14 Months', style: 'Contemporary Luxury' }
+  },
+  {
+    id: 'proj-comm-4',
+    title: 'Retail Storefront & Commercial Glazing',
     category: 'COMMERCIAL',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/COMMERCIAL4.jpeg',
-    description: 'Bespoke commercial facade design highlighting premium shopfront glazing, dark metal panel profiles, and architectural exterior coving.',
-    details: { area: '2,500 Sq.Ft', duration: '8 Months', style: 'Corporate Retail' }
+    description: 'High-impact retail commercial store facade featuring toughened glass, dark metallic framing, and architectural coving.',
+    details: { area: '2,200 Sq.Ft', duration: '5 Months', style: 'Modern Retail' }
+  },
+  {
+    id: 'proj-comm-5',
+    title: 'Corporate Executive Conference Suite',
+    category: 'COMMERCIAL',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/COMMERCIAL5.jpeg',
+    description: 'Bespoke corporate board meeting room with custom conference table, acoustic wall paneling, and ambient profile lighting.',
+    details: { area: '1,500 Sq.Ft', duration: '3.5 Months', style: 'Corporate Executive' }
+  },
+  {
+    id: 'proj-comm-6',
+    title: 'Tech Hub Workspace & Desk Partitions',
+    category: 'COMMERCIAL',
+    location: 'Virudhunagar, TN',
+    image: '/images/pics/workpics/COMMERCIAL6.png',
+    description: 'Modern office workstation layout equipped with modular acoustic partitions, integrated cable channels, and ergonomic seating.',
+    details: { area: '3,800 Sq.Ft', duration: '6 Months', style: 'Contemporary Office' }
+  },
+  {
+    id: 'proj-comm-7',
+    title: 'Modern Corporate Lounge & Reception',
+    category: 'COMMERCIAL',
+    location: 'Madurai, TN',
+    image: '/images/pics/workpics/COMMERCIAL7.png',
+    description: 'Prestigious corporate reception desk and visitor lounge featuring custom marble cladding and illuminated branding logo wall.',
+    details: { area: '1,800 Sq.Ft', duration: '4 Months', style: 'Minimalist Corporate' }
+  },
+  {
+    id: 'proj-hall-1',
+    title: 'Grand Royal Living Hall Elevation',
+    category: 'HALL',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/HALL1.jpeg',
+    description: 'Bespoke grand living hall design featuring double-height wall paneling, warm profile coving, custom TV media wall, and luxury lounge seating.',
+    details: { area: '1,850 Sq.Ft', duration: '3.5 Months', style: 'Minimalist Luxury' }
+  },
+  {
+    id: 'proj-hall-2',
+    title: 'Contemporary Luxury Main Hall',
+    category: 'HALL',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/HALL2.jpeg',
+    description: 'Sophisticated open-concept main hall styling with integrated acoustic louvers, indirect LED cove lighting, and handcrafted furniture.',
+    details: { area: '1,650 Sq.Ft', duration: '3 Months', style: 'Modern Contemporary' }
+  },
+  {
+    id: 'proj-bed-1',
+    title: 'Royal Upholstered Master Bedroom',
+    category: 'BEDROOM',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/BEDROOM1.jpeg',
+    description: 'Opulent master suite featuring floor-to-ceiling padded fabric headboard, warm cove LED lighting, and integrated vanity dresser.',
+    details: { area: '720 Sq.Ft', duration: '2 Months', style: 'Royal Luxury' }
+  },
+  {
+    id: 'proj-bed-2',
+    title: 'Minimalist Zen Suite',
+    category: 'BEDROOM',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/BEDROOM2.jpeg',
+    description: 'A serene bedroom layout with light oak wood paneling, floating nightstands, and soft ambient wall sconces.',
+    details: { area: '650 Sq.Ft', duration: '2 Months', style: 'Nordic Zen' }
+  },
+  {
+    id: 'proj-bed-3',
+    title: 'Contemporary Luxury Suite',
+    category: 'BEDROOM',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/BEDROOM3.jpeg',
+    description: 'Spacious guest bedroom designed with custom wardrobe louvers, geometric wall molding, and indirect ceiling lights.',
+    details: { area: '580 Sq.Ft', duration: '1.5 Months', style: 'Modern Contemporary' }
+  },
+  {
+    id: 'proj-kit-3',
+    title: 'Matte Finish Charcoal Modular Kitchen',
+    category: 'KITCHEN',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/KITCHEN3.jpeg',
+    description: 'Matte charcoal grey acrylic cabinetry combined with quartz island countertop and built-in appliance towers.',
+    details: { area: '420 Sq.Ft', duration: '2 Months', style: 'Matte Minimalist' }
+  },
+  {
+    id: 'proj-kit-4',
+    title: 'Warm Teak Wood Parallel Kitchen',
+    category: 'KITCHEN',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/KITCHEN4.jpeg',
+    description: 'Parallel layout modular kitchen with natural teak wood laminate shutters, marble backsplash, and cutlery organizers.',
+    details: { area: '380 Sq.Ft', duration: '1.5 Months', style: 'Warm Vernacular' }
+  },
+  {
+    id: 'proj-kit-5',
+    title: 'High-Gloss White & Gold Modular Kitchen',
+    category: 'KITCHEN',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/KITCHEN5.jpeg',
+    description: 'Ultra-gloss white acrylic kitchen equipped with gold profile handles, under-cabinet profile strip lights, and pull-out pantries.',
+    details: { area: '480 Sq.Ft', duration: '2 Months', style: 'Sleek Luxury' }
+  },
+  {
+    id: 'proj-kit-6',
+    title: 'Contemporary Open Chef Kitchen',
+    category: 'KITCHEN',
+    location: 'Madurai, TN',
+    image: '/images/pics/workpics/KITCHEN6.jpeg',
+    description: 'Open-plan chef kitchen integrated with breakfast counter bar stools, chimney ducting, and soft-close Tandem boxes.',
+    details: { area: '520 Sq.Ft', duration: '2.5 Months', style: 'Modern Open' }
+  },
+  {
+    id: 'proj-int-15',
+    title: 'Luxury Living Room Wall Paneling',
+    category: 'INTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/INTERIOR15.jpeg',
+    description: 'Living room interior featuring fluted charcoal louvers, gold trim brass inlay, and floating media unit.',
+    details: { area: '450 Sq.Ft', duration: '1.5 Months', style: 'Bespoke Luxury' }
+  },
+  {
+    id: 'proj-ext-15',
+    title: 'Contemporary Residence Elevation 15',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR15.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR33.png',
+    description: 'Clean modern elevation facade featuring warm architectural lights and stone cladding.',
+    details: { area: '3,600 Sq.Ft', duration: '10 Months', style: 'Modern Contemporary' }
+  },
+  {
+    id: 'proj-ext-16',
+    title: 'Grand Villa Facade 16',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR16.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR34.jpeg',
+    description: 'Multi-tiered residential facade with floating cantilever slabs and glass balconies.',
+    details: { area: '4,400 Sq.Ft', duration: '12 Months', style: 'High-End Modern' }
+  },
+  {
+    id: 'proj-ext-19',
+    title: 'Bespoke Facade Elevation 19',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR19.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR35.jpeg',
+    description: 'Modern elevation detailing with linear wood panels and ambient spotlighting.',
+    details: { area: '3,900 Sq.Ft', duration: '11 Months', style: 'Modern Contemporary' }
+  },
+  {
+    id: 'proj-ext-20',
+    title: 'Compact Villa Facade 20',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR20.png',
+    sideImage: '/images/pics/workpics/EXTERIOR36.jpeg',
+    description: 'Urban villa exterior design maximizing spatial elevation and vertical metal louvers.',
+    details: { area: '2,600 Sq.Ft', duration: '8 Months', style: 'Compact Modern' }
+  },
+  {
+    id: 'proj-ext-21',
+    title: 'Modern Linear Villa Elevation 21',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR21.png',
+    sideImage: '/images/pics/workpics/EXTERIOR37.jpeg',
+    description: 'Parametric wood louver facade with warm perimeter lighting coving and stone accents.',
+    details: { area: '3,800 Sq.Ft', duration: '11 Months', style: 'Linear Modern' }
+  },
+  {
+    id: 'proj-ext-22',
+    title: 'Double-Height Glazed Facade 22',
+    category: 'EXTERIOR',
+    location: 'Madurai, TN',
+    image: '/images/pics/workpics/EXTERIOR22.png',
+    sideImage: '/images/pics/workpics/EXTERIOR38.jpeg',
+    description: 'High-concept double-height living room exterior elevation featuring floor-to-ceiling glass paneling.',
+    details: { area: '5,100 Sq.Ft', duration: '15 Months', style: 'Contemporary Elite' }
+  },
+  {
+    id: 'proj-ext-23',
+    title: 'Minimalist Monolithic Facade 23',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR23.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR39.jpeg',
+    description: 'Clean white concrete panel layout with inset balcony windows and warm architectural sconces.',
+    details: { area: '4,200 Sq.Ft', duration: '12 Months', style: 'Minimalist Luxury' }
+  },
+  {
+    id: 'proj-ext-24',
+    title: 'Teak Louver Heritage Elevation 24',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR24.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR40.jpeg',
+    description: 'Vernacular-inspired exterior combining natural teak wood louvers, grey stone tiles, and automated gates.',
+    details: { area: '4,600 Sq.Ft', duration: '13 Months', style: 'Modern Vernacular' }
+  },
+  {
+    id: 'proj-ext-25',
+    title: 'Contemporary Metal Slat Villa 25',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR25.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR41.png',
+    description: 'Structural steel mesh screen facade with floating cantilever slabs and warm entrance illumination.',
+    details: { area: '3,700 Sq.Ft', duration: '10 Months', style: 'Industrial Modern' }
+  },
+  {
+    id: 'proj-ext-26',
+    title: 'Luxury Courtyard Facade 26',
+    category: 'EXTERIOR',
+    location: 'Virudhunagar, TN',
+    image: '/images/pics/workpics/EXTERIOR26.png',
+    sideImage: '/images/pics/workpics/EXTERIOR42.jpeg',
+    description: 'Expansive courtyard bungalow elevation combining textured plaster, glass balustrades, and landscape uplighting.',
+    details: { area: '5,500 Sq.Ft', duration: '16 Months', style: 'Luxury Courtyard' }
+  },
+  {
+    id: 'proj-ext-27',
+    title: 'High-Tech Parametric Facade 27',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR27.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR43.jpeg',
+    description: 'Geometric multi-tier facade with recessed LED strip coving and dark metallic accents.',
+    details: { area: '4,300 Sq.Ft', duration: '12 Months', style: 'High-Tech Modern' }
+  },
+  {
+    id: 'proj-ext-28',
+    title: 'Opulent Villa Front Facade 28',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR28.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR44.jpeg',
+    description: 'Architectural masterpiece featuring double-height entrance columns, frameless glass balconies, and warm sconces.',
+    details: { area: '6,000 Sq.Ft', duration: '17 Months', style: 'Opulent Luxury' }
   }
 ];
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: 'rev-1',
-    quote: 'Very good work. How they shown in the design and final output also same. Final look was awesome.',
-    author: 'Verified Google Reviewer',
+    quote: 'Very good work. How they shown in the design and final output also same. Final look was awesome. Everyone like our interior design. Thanks for luxury designer make our home beautiful with affordable price.',
+    author: 'Saravanakumar S',
     location: 'Aruppukkottai, Tamil Nadu',
     rating: 5,
-    projectType: 'Design & Build Residential'
+    projectType: 'Interior Design & Construction'
   },
   {
     id: 'rev-2',
-    quote: 'Very perfect 3D, 2D plan works.',
-    author: 'Homeowner',
-    location: 'Kalloorani, Aruppukkottai',
+    quote: 'Very perfect 3D, 2D plan works👍 I really like his work designs appreciated and keep it up 🤗',
+    author: 'Deepa Loganathan',
+    location: 'Aruppukkottai, Tamil Nadu',
     rating: 5,
-    projectType: '2D & 3D Planning'
+    projectType: '2D Floor Plan & 3D Model'
   },
   {
     id: 'rev-3',
-    quote: 'Outstanding service during initial assessment.',
-    author: 'Client',
+    quote: 'Outstanding service during initial assessment. On time, professional, helpful in identifying current and future needs while providing great pricing quotes. You can confidently trust them. They are doing excellent work 👍',
+    author: 'Murali Tharan',
     location: 'Aruppukkottai, Tamil Nadu',
     rating: 5,
-    projectType: 'Architectural Consultation'
+    projectType: 'Architectural Assessment & Pricing'
+  },
+  {
+    id: 'rev-4',
+    quote: '3D models are very popular in engineering as they graphically represent the overall layout with all equipment, structures, and electrical connections. These 3D models are close to the real plant built at the site after construction.',
+    author: 'Karthi Karthick',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: '3D Modeling & Civil Engineering'
+  },
+  {
+    id: 'rev-5',
+    quote: 'Perfect 👍👍 Planning, Designing, Executive Planning, Perfect Timing, Development of New Designs, 100% Happiness. Thanks to Your Team🤗',
+    author: 'N. R. Anantha Raja',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Turnkey Architectural Design'
+  },
+  {
+    id: 'rev-6',
+    quote: 'Affordable price for design. They doing different design from others like trending thoughts.',
+    author: 'Ganga Meena',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Trending Architectural Design'
+  },
+  {
+    id: 'rev-7',
+    quote: 'Outstanding design affordable price for design different design best service',
+    author: 'Ravi Kumar Pandi',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Home Elevation & Interior'
+  },
+  {
+    id: 'rev-8',
+    quote: 'Outstanding design affordable price for design different design',
+    author: 'Karthick Raja',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Architectural Blueprint'
+  },
+  {
+    id: 'rev-9',
+    quote: 'Good work and professional civil engineering execution.',
+    author: 'Er S.Krishna Moorthi',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Civil Engineering Work'
+  },
+  {
+    id: 'rev-10',
+    quote: 'Designs is very beautiful and excellent output.',
+    author: 'Karthik R',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Residential Design'
+  },
+  {
+    id: 'rev-11',
+    quote: 'Nice work and creative architectural planning.',
+    author: 'Unnai Nee Nambu',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: '2D & 3D Design'
+  },
+  {
+    id: 'rev-[#C5A059]-12',
+    quote: 'Good civil construction and structural design service.',
+    author: 'Britto Britto',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Building Construction'
+  },
+  {
+    id: 'rev-13',
+    quote: 'Outstanding work and high quality finishing.',
+    author: 'Vimal Anbalagan',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Civil Engineering & Finish'
+  },
+  {
+    id: 'rev-14',
+    quote: 'New trending architectural concepts and excellent customer service.',
+    author: 'Murugan Mms (Local Guide)',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Turnkey Construction'
+  },
+  {
+    id: 'rev-15',
+    quote: 'Great architectural planning and very professional team.',
+    author: 'Fazil Ifthihar',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Architectural Service'
+  },
+  {
+    id: 'rev-16',
+    quote: 'Very good planning, designs, and timely execution.',
+    author: 'Guna Sekaran',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Residential Construction'
+  },
+  {
+    id: 'rev-17',
+    quote: 'Prompt response, great pricing quotes, and quality designs.',
+    author: 'Daveedhu Rajan',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Consultation & Planning'
+  },
+  {
+    id: 'rev-18',
+    quote: 'Creative 3D elevation models and affordable construction budget.',
+    author: 'Karthi Keyan',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: '3D Elevation & Construction'
+  },
+  {
+    id: 'rev-19',
+    quote: 'High quality 2D floor plans and 3D visualization works.',
+    author: 'SivaMani Dharshan',
+    location: 'Aruppukkottai, Tamil Nadu',
+    rating: 5,
+    projectType: 'Floor Planning & 3D'
   }
 ];
 

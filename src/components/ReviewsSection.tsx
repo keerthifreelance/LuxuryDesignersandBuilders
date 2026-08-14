@@ -69,7 +69,7 @@ export const ReviewsSection: React.FC = () => {
             </button>
 
             <span className="text-xs font-mono text-white/60">
-              0{activeIndex + 1} / 0{TESTIMONIALS.length}
+              {String(activeIndex + 1).padStart(2, '0')} / {String(TESTIMONIALS.length).padStart(2, '0')}
             </span>
 
             <button
@@ -83,14 +83,14 @@ export const ReviewsSection: React.FC = () => {
         </div>
 
         {/* Reviews Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12 max-h-[560px] overflow-y-auto pr-2 scrollbar-none">
           {TESTIMONIALS.map((review, idx) => (
             <div
               key={review.id}
               onClick={() => setActiveIndex(idx)}
               className={`p-6 border transition-all cursor-pointer ${
                 activeIndex === idx
-                  ? 'border-white bg-[#181818]'
+                  ? 'border-[#C5A059] bg-[#181818] shadow-[0_0_15px_rgba(197,160,89,0.2)]'
                   : 'border-white/10 bg-[#121212] hover:border-white/30'
               }`}
             >
@@ -99,10 +99,11 @@ export const ReviewsSection: React.FC = () => {
                   <span key={i} className="material-symbols-outlined text-xs">star</span>
                 ))}
               </div>
-              <p className="text-xs text-white/90 line-clamp-3 leading-relaxed mb-4 font-light">
+              <p className="text-xs text-white/90 line-clamp-3 leading-relaxed mb-3 font-light">
                 "{review.quote}"
               </p>
-              <p className="text-[11px] font-bold uppercase text-white/70">{review.author}</p>
+              <p className="text-[11px] font-bold uppercase text-[#C5A059] font-mono">{review.author}</p>
+              <p className="text-[10px] text-white/50">{review.projectType}</p>
             </div>
           ))}
         </div>

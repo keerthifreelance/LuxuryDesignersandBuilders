@@ -8,6 +8,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { CinematicHero } from './components/CinematicHero';
 import { AboutSection } from './components/AboutSection';
+import { ProfileSection } from './components/ProfileSection';
 import { ServicesSection } from './components/ServicesSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { DesignVsReality } from './components/DesignVsReality';
@@ -83,6 +84,7 @@ export default function App() {
       <main>
         <CinematicHero />
         <AboutSection />
+        <ProfileSection />
         <ServicesSection />
         <PortfolioSection />
         <DesignVsReality />

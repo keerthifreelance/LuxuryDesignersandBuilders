@@ -20,7 +20,11 @@ export const DesignVsReality: React.FC = () => {
     '/images/pics/workpics/2Dimg1.png',
     '/images/pics/workpics/2Dimg2.png',
     '/images/pics/workpics/2Dimg3.png',
-    '/images/pics/workpics/2Dimg4.png'
+    '/images/pics/workpics/2Dimg4.png',
+    '/images/pics/workpics/2Dimg5.png',
+    '/images/pics/workpics/2Dimg6.jpeg',
+    '/images/pics/workpics/2Dimg7.png',
+    '/images/pics/workpics/2Dimg8.png'
   ];
   const [selectedBlueprint, setSelectedBlueprint] = useState<string>(blueprintImages[0]);
 
@@ -74,8 +78,8 @@ export const DesignVsReality: React.FC = () => {
               onClick={() => setActiveTab('COMPARISON')}
               className={`px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase border transition-all ${
                 activeTab === 'COMPARISON'
-                  ? 'bg-white text-black border-white'
-                  : 'bg-transparent text-white/50 border-white/20 hover:border-white/50 hover:text-white'
+                  ? 'bg-[#C5A059] text-black border-[#C5A059]'
+                  : 'bg-transparent text-white/50 border-white/20 hover:border-[#C5A059]/50 hover:text-white'
               }`}
             >
               3D VS FINAL EXECUTION
@@ -84,8 +88,8 @@ export const DesignVsReality: React.FC = () => {
               onClick={() => setActiveTab('BLUEPRINT')}
               className={`px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase border transition-all ${
                 activeTab === 'BLUEPRINT'
-                  ? 'bg-white text-black border-white'
-                  : 'bg-transparent text-white/50 border-white/20 hover:border-white/50 hover:text-white'
+                  ? 'bg-[#C5A059] text-black border-[#C5A059]'
+                  : 'bg-transparent text-white/50 border-white/20 hover:border-[#C5A059]/50 hover:text-white'
               }`}
             >
               2D FLOOR PLAN
