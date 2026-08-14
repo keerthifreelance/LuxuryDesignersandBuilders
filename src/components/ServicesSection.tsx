@@ -72,6 +72,8 @@ export const ServicesSection: React.FC = () => {
                   <img
                     src={service.image}
                     alt={service.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/30" />

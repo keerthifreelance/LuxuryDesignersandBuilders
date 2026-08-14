@@ -79,6 +79,8 @@ export const CinematicHero: React.FC = () => {
             <img
               src={slide.image}
               alt={`${slide.headlineMain} ${slide.headlineGold}`}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
               className={`w-full h-full object-cover transition-transform duration-[7000ms] ease-out ${
                 index === currentSlideIndex ? 'scale-105' : 'scale-100'
               }`}

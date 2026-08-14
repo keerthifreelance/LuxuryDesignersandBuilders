@@ -108,40 +108,35 @@ export const PortfolioSection: React.FC = () => {
             >
               {/* Image / Direct Video Container */}
               <div className="relative h-72 sm:h-80 overflow-hidden">
-                {project.videoUrl ? (
-                  <video
-                    src={project.videoUrl}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    controls
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                  </>
-                )}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
                 {/* Category Badge */}
                 <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm border border-[#C5A059]/40 text-[#C5A059] text-[10px] font-bold px-3 py-1 uppercase tracking-widest pointer-events-none z-10">
                   {project.videoUrl ? 'WALKTHROUGH VIDEO' : project.category}
                 </span>
 
-                {/* Hover Badge */}
-                {!project.videoUrl && (
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
-                    <span className="px-5 py-2.5 bg-[#C5A059] text-black text-xs font-bold tracking-widest uppercase">
-                      VIEW PROJECT
-                    </span>
+                {/* Video Play Icon Overlay */}
+                {project.videoUrl && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <div className="w-14 h-14 rounded-full bg-black/75 border border-[#C5A059] flex items-center justify-center text-[#C5A059] group-hover:scale-110 group-hover:bg-[#C5A059] group-hover:text-black transition-all shadow-[0_0_20px_rgba(197,160,89,0.5)]">
+                      <span className="material-symbols-outlined text-3xl">play_arrow</span>
+                    </div>
                   </div>
                 )}
+
+                {/* Hover Badge */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                  <span className="px-5 py-2.5 bg-[#C5A059] text-black text-xs font-bold tracking-widest uppercase">
+                    {project.videoUrl ? 'PLAY VIDEO' : 'VIEW PROJECT'}
+                  </span>
+                </div>
               </div>
 
               {/* Card Footer Content */}
@@ -191,12 +186,15 @@ export const PortfolioSection: React.FC = () => {
                   autoPlay
                   loop
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-contain"
                 />
               ) : (
                 <img
                   src={activeModalImage || activeModalProject.image}
                   alt={activeModalProject.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain transition-all duration-500"
                 />
               )}
