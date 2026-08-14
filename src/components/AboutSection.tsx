@@ -82,7 +82,7 @@ export const AboutSection: React.FC = () => {
         <div className="lg:col-span-5 relative">
           <div className="relative h-[480px] sm:h-[580px] overflow-hidden shadow-2xl border border-white/10 group explore-el">
             <img
-              src="/images/pics/workpics/Night view.jpg.jpeg"
+              src="/images/pics/workpics/Night_view.jpg.jpeg"
               alt="Luxury Designers & Builders Architecture"
               className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
             />

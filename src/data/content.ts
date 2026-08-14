@@ -142,7 +142,7 @@ export const SERVICES: ServiceItem[] = [
     shortDesc: 'Comprehensive architectural planning and structural elegance for timeless homes.',
     fullDesc: 'End-to-end structural design blending climate-responsive architecture, natural ventilation, elevation aesthetic, and structural integrity.',
     iconName: 'architecture',
-    image: '/images/pics/workpics/David prem.jpg.jpeg'
+    image: '/images/pics/workpics/David_prem.jpg.jpeg'
   },
   {
     number: '03',
@@ -182,7 +182,7 @@ export const SERVICES: ServiceItem[] = [
     shortDesc: 'Striking modern elevation facades, landscape integration, and boundary aesthetics.',
     fullDesc: 'Parametric wood paneling, louvers, stone cladding, landscape illumination, and courtyard designs that make a memorable statement.',
     iconName: 'landscape',
-    image: '/images/pics/workpics/Night view.jpg.jpeg'
+    image: '/images/pics/workpics/Night_view.jpg.jpeg'
   },
   {
     number: '08',
@@ -276,7 +276,7 @@ export const PROJECTS: ProjectItem[] = [
     title: 'Kalloorani Heritage Residence',
     category: 'RESIDENTIAL',
     location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/Elevation (2).jpg.jpeg',
+    image: '/images/pics/workpics/Elevation_2.jpg.jpeg',
     description: 'A 4,200 sq.ft. modern courtyard bungalow combining natural limestone, teak wood louvers, and expansive glass facades.',
     details: { area: '4,200 Sq.Ft', duration: '12 Months', style: 'Modern Vernacular' }
   },
