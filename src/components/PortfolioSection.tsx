@@ -108,14 +108,31 @@ export const PortfolioSection: React.FC = () => {
             >
               {/* Image / Direct Video Container */}
               <div className="relative h-72 sm:h-80 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                {project.videoUrl ? (
+                  <video
+                    src={`${project.videoUrl}#t=0.1`}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play().catch(() => {})}
+                    onMouseLeave={(e) => {
+                      const v = e.target as HTMLVideoElement;
+                      v.pause();
+                      v.currentTime = 0;
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity pointer-events-none" />
 
                 {/* Category Badge */}
                 <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm border border-[#C5A059]/40 text-[#C5A059] text-[10px] font-bold px-3 py-1 uppercase tracking-widest pointer-events-none z-10">
@@ -213,7 +230,9 @@ export const PortfolioSection: React.FC = () => {
             </div>
 
             {/* Video, Side Image, 3D Render & Gallery Thumbnails Selector */}
-            {activeModalProject && (activeModalProject.videoUrl || activeModalProject.sideImage || activeModalProject.renderImage || (activeModalProject.galleryImages && activeModalProject.galleryImages.length > 0)) && (
+            {activeModalProject &&
+              activeModalProject.category !== 'VIDEOS' &&
+              (activeModalProject.sideImage || activeModalProject.renderImage || (activeModalProject.galleryImages && activeModalProject.galleryImages.length > 0)) && (
               <div className="space-y-2">
                 <span className="text-[10px] font-bold tracking-[0.2em] text-[#C5A059] uppercase block">
                   AVAILABLE VIEWS (CLICK TO SWITCH):

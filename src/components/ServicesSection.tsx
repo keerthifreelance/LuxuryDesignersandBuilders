@@ -131,21 +131,21 @@ export const ServicesSection: React.FC = () => {
               {SERVICE_CHARGES.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between p-3.5 sm:p-4 bg-[#181818] border border-white/10 hover:border-[#C5A059]/50 transition-all rounded-xl gap-3 group"
+                  className="flex items-center justify-between p-3 sm:p-4 bg-[#181818] border border-white/10 hover:border-[#C5A059]/50 transition-all rounded-xl gap-2.5 sm:gap-3 group"
                 >
-                  <div className="flex items-center space-x-3.5 min-w-0">
+                  <div className="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0 flex-1">
                     {/* Number Badge */}
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-black border border-[#C5A059]/60 text-[#DFBA67] font-mono text-xs sm:text-sm font-bold flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-black border border-[#C5A059]/60 text-[#DFBA67] font-mono text-xs sm:text-sm font-bold flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                       {item.id}
                     </div>
                     {/* Service Name */}
-                    <span className="font-serif text-xs sm:text-sm font-semibold text-white tracking-wide truncate">
+                    <span className="font-serif text-[11px] sm:text-sm font-semibold text-white tracking-wide leading-tight">
                       {item.service}
                     </span>
                   </div>
 
                   {/* Rate Badge */}
-                  <div className="px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black font-mono font-bold text-xs tracking-wider shadow-md whitespace-nowrap flex-shrink-0">
+                  <div className="px-2.5 sm:px-5 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black font-mono font-bold text-[10px] sm:text-xs tracking-wider shadow-md whitespace-nowrap flex-shrink-0">
                     {item.rate}
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import { ProjectItem, ServiceItem, TestimonialItem, ProcessStep } from '../types
 
 export const BRAND_INFO = {
   name: 'Luxury Designers & Builders',
+  websiteUrl: 'https://www.luxurydesignersandbuilders.in',
   tagline: 'From Vision to Reality.',
   secondaryTagline: 'We Design Your Dream. We Build Your Trust.',
   phoneDisplay: '96004 70328',
@@ -222,50 +223,50 @@ export const SERVICE_CHARGES: ServiceChargeItem[] = [
 export const PROJECTS: ProjectItem[] = [
   {
     id: 'proj-video-1',
-    title: '3D Architecture & Interior Walkthrough 1',
+    title: '3D Architecture & Exterior Walkthrough',
     category: 'VIDEOS',
     location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/COMMERCIAL1.jpeg',
+    image: '/images/pics/workpics/EXTERIOR15.jpeg',
     videoUrl: '/images/pics/workpics2/video1.mp4',
     description: 'Exclusive 3D walkthrough video showcasing architectural elevation execution, interior spatial planning, structural detailing, and construction quality.',
     details: { area: '3,800 Sq.Ft', duration: 'Full HD Video', style: '3D Walkthrough' }
   },
   {
     id: 'proj-video-2',
-    title: 'Living Hall & Spatial Elevation Walkthrough 2',
+    title: 'Resorts at vembar',
     category: 'VIDEOS',
     location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/HALL1.jpeg',
+    image: '/images/pics/workpics/HALL2.jpeg',
     videoUrl: '/images/pics/workpics2/video2.mp4',
     description: 'Immersive interior spatial elevation video highlighting custom wall paneling, ambient LED lighting, and furniture arrangements.',
     details: { area: '2,400 Sq.Ft', duration: 'Full HD Video', style: 'Interior Walkthrough' }
   },
   {
     id: 'proj-video-3',
-    title: 'Luxury Suite & False Ceiling Walkthrough 3',
+    title: 'Luxury Suite & False Ceiling Walkthrough',
     category: 'VIDEOS',
     location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/CEILING1.jpeg',
+    image: '/images/pics/workpics/INTERIOR15.jpeg',
     videoUrl: '/images/pics/workpics2/video3.mp4',
     description: 'High-definition 3D video walkthrough detailing bespoke false ceiling coving, spot lighting grids, and suite layout.',
     details: { area: '1,800 Sq.Ft', duration: 'Full HD Video', style: 'Ceiling & Suite Tour' }
   },
   {
     id: 'proj-video-4',
-    title: 'Exterior Facade & Villa Elevation Walkthrough 4',
+    title: 'Exterior Facade & Villa Elevation Walkthrough',
     category: 'VIDEOS',
     location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/EXTERIOR1.jpeg',
+    image: '/images/pics/workpics/EXTERIOR17.jpeg',
     videoUrl: '/images/pics/workpics2/video4.mp4',
     description: 'Comprehensive 360-degree architectural facade video demonstrating multi-tier cantilever slabs, stone cladding, and lighting.',
     details: { area: '4,500 Sq.Ft', duration: 'Full HD Video', style: 'Exterior 3D Tour' }
   },
   {
     id: 'proj-video-5',
-    title: 'Modular Kitchen & Dining Tour 5',
+    title: 'Exterior Tour',
     category: 'VIDEOS',
     location: 'Madurai, TN',
-    image: '/images/pics/workpics/KITCHEN1.jpeg',
+    image: '/images/pics/workpics/KITCHEN3.jpeg',
     videoUrl: '/images/pics/workpics2/video5.mp4',
     description: 'Detailed modular kitchen and dining space walkthrough showcasing acrylic cabinetry, quartz counters, and storage hardware.',
     details: { area: '600 Sq.Ft', duration: 'Full HD Video', style: 'Kitchen Design Video' }
@@ -276,7 +277,6 @@ export const PROJECTS: ProjectItem[] = [
     category: 'RESIDENTIAL',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/Elevation (2).jpg.jpeg',
-    renderImage: '/images/pics/workpics/Elevation 4.jpg.jpeg',
     description: 'A 4,200 sq.ft. modern courtyard bungalow combining natural limestone, teak wood louvers, and expansive glass facades.',
     details: { area: '4,200 Sq.Ft', duration: '12 Months', style: 'Modern Vernacular' }
   },
@@ -295,19 +295,8 @@ export const PROJECTS: ProjectItem[] = [
     category: 'KITCHEN',
     location: 'Madurai, TN',
     image: '/images/pics/workpics/KITCHEN1.jpeg',
-    renderImage: '/images/pics/workpics/Picsart_26-03-18_08-57-23-358.jpg.jpeg',
     description: 'Ergonomic island kitchen with quartz countertops, hidden pantry hardware, matte acrylic cabinetry, and ambient under-shelf lighting.',
     details: { area: '450 Sq.Ft', duration: '2 Months', style: 'Contemporary Modular' }
-  },
-  {
-    id: 'proj-4',
-    title: 'Serene Master Haven',
-    category: 'BEDROOM',
-    location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/IMG-20260225-WA0002.jpg.jpeg',
-    renderImage: '/images/pics/workpics/Picsart_26-05-18_11-14-43-080.jpg.jpeg',
-    description: 'A tranquil suite featuring acoustically padded headboards, integrated wardrobe vanity, and private balcony seating.',
-    details: { area: '650 Sq.Ft', duration: '2.5 Months', style: 'Nordic Zen' }
   },
   {
     id: 'proj-5',
@@ -499,15 +488,6 @@ export const PROJECTS: ProjectItem[] = [
     details: { area: '3,800 Sq.Ft', duration: '12 Months', style: 'Vernacular Modern' }
   },
   {
-    id: 'proj-26',
-    title: 'Floating Cantilever Slab Facade 10',
-    category: 'EXTERIOR',
-    location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/EXTERIOR10.jpeg',
-    description: 'A structural masterpiece featuring bold floating cantilever slabs, glass balustrades, and structural steel coving.',
-    details: { area: '6,200 Sq.Ft', duration: '18 Months', style: 'Deconstructivist Modern' }
-  },
-  {
     id: 'proj-27',
     title: 'Modern Facade Glass Balustrades 11',
     category: 'EXTERIOR',
@@ -626,21 +606,12 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-40',
-    title: 'Sleek Bathroom Vanity Design 11',
+    title: 'Sleek Living Hall Vanity Design 11',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR11.jpeg',
     description: 'Bathroom interior layout containing custom under-counter drawers, backlit LED smart mirrors, and marble tiles.',
     details: { area: '150 Sq.Ft', duration: '1 Month', style: 'Luxury Bath' }
-  },
-  {
-    id: 'proj-41',
-    title: 'Bespoke Puja Room Archway 12',
-    category: 'INTERIOR',
-    location: 'Aruppukkottai, TN',
-    image: '/images/pics/workpics/INTERIOR12.jpeg',
-    description: 'Traditional wood-carved puja room doors with brass bells, marble platforms, and ambient warm cove lighting.',
-    details: { area: '200 Sq.Ft', duration: '1.5 Months', style: 'Traditional Vernacular' }
   },
   {
     id: 'proj-42',
@@ -730,7 +701,6 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR17.jpeg',
-    sideImage: '/images/pics/workpics/EXTERIOR17side.jpeg',
     description: 'A multi-perspective luxury villa elevation showcasing warm architectural lighting, parametric louvers, and a complete side elevation view.',
     details: { area: '4,800 Sq.Ft', duration: '12 Months', style: 'Modern Vernacular' }
   },
@@ -740,7 +710,6 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR18.jpeg',
-    sideImage: '/images/pics/workpics/EXTERIOR18side.jpeg',
     description: 'Double-height living space facade detailing with floating balconies, teak wood accents, and side perspective layout.',
     details: { area: '5,100 Sq.Ft', duration: '14 Months', style: 'Contemporary Luxury' }
   },

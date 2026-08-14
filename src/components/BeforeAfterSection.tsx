@@ -13,7 +13,7 @@ export const BeforeAfterSection: React.FC = () => {
     {
       id: 'ba-1',
       title: 'Elevation Site Work',
-      categoryTag: 'BEFORE WORK',
+      categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA1.jpeg',
       description: 'Initial site condition featuring raw masonry walls, dim ambient light, and structural layout prep.'
     },
@@ -25,29 +25,78 @@ export const BeforeAfterSection: React.FC = () => {
       description: 'Handcrafted fluted wooden partition paneling with indirect warm LED coving and luxury seating.'
     },
     {
-      id: 'ba-3',
-      title: 'Master Bedroom Masonry Prep',
+      id: 'ba-4',
+      title: '2D View Plan Layout',
       categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/BA3.jpeg',
-      description: 'Structural brick wall layout phase prior to acoustic wood paneling and electrical wiring.'
+      image: '/images/pics/workpics/BA4.jpeg',
+      description: 'Vastu-compliant 2D architectural blueprint layout and structural floor plan design.'
     },
     {
-      id: 'ba-4',
-      title: 'Master Bedroom Zen Suite',
-      categoryTag: 'COMPLETED EXECUTION',
-      image: '/images/pics/workpics/BA4.jpeg',
-      description: 'Opulent master suite finished with padded fabric headboard, ambient sconces, and floating tables.'
+      id: '2d-plan-1',
+      title: '2D Architectural Floor Plan 1',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg1.png',
+      description: 'Precision Vastu-compliant 2D architectural blueprint layout and room dimensioning.'
+    },
+    {
+      id: '2d-plan-2',
+      title: '2D Architectural Floor Plan 2',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg2.png',
+      description: 'Detailed civil floor layout schematic featuring column positions and wall alignments.'
+    },
+    {
+      id: '2d-plan-3',
+      title: '2D Architectural Floor Plan 3',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg3.png',
+      description: 'Residential villa spatial distribution blueprint with electrical & plumbing routing.'
+    },
+    {
+      id: '2d-plan-4',
+      title: '2D Architectural Floor Plan 4',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg4.png',
+      description: 'Turnkey residential floor plan draft designed according to structural Vastu principles.'
+    },
+    {
+      id: '2d-plan-5',
+      title: '2D Architectural Floor Plan 5',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg5.png',
+      description: 'Ground floor conceptual plan featuring portico, living hall, kitchen, and stairwell details.'
+    },
+    {
+      id: '2d-plan-6',
+      title: '2D Architectural Floor Plan 6',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg6.jpeg',
+      description: 'Multi-story residential structural blueprint layout with dimensional setback markings.'
+    },
+    {
+      id: '2d-plan-7',
+      title: '2D Architectural Floor Plan 7',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg7.png',
+      description: 'Modern duplex bungalow floor plan layout detailing room clearance and doorway placements.'
+    },
+    {
+      id: '2d-plan-8',
+      title: '2D Architectural Floor Plan 8',
+      categoryTag: 'BEFORE WORK',
+      image: '/images/pics/workpics/2Dimg8.png',
+      description: 'Comprehensive civil construction 2D drawing ready for municipal approval.'
     },
     {
       id: 'ba-5',
-      title: 'Modular Kitchen Civil Work',
-      categoryTag: 'BEFORE WORK',
+      title: 'Drawing to final output',
+      categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA5.jpeg',
       description: 'Traditional brick platform layout and unplastered masonry partition phase.'
     },
     {
       id: 'ba-6',
-      title: 'Ergonomic Modular Kitchen',
+      title: 'Ergonomic Modular Exterior',
       categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA6.jpeg',
       description: 'Completed modular island kitchen with quartz countertops and under-shelf profile lights.'
@@ -55,7 +104,7 @@ export const BeforeAfterSection: React.FC = () => {
     {
       id: 'ba-7',
       title: 'Villa Facade Structural Framing',
-      categoryTag: 'BEFORE WORK',
+      categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA7.jpeg',
       description: 'Ground-level civil construction phase highlighting steel column rebar and brickwork.'
     },
@@ -67,13 +116,6 @@ export const BeforeAfterSection: React.FC = () => {
       description: 'Double-height modern elevation featuring cantilever slabs, glass balustrades, and architectural sconces.'
     },
     {
-      id: 'ba-9',
-      title: 'Office Slab & Column Framing',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/BA9.jpeg',
-      description: 'Raw commercial floor layout prior to glass partitions and executive manager desk setup.'
-    },
-    {
       id: 'ba-10',
       title: 'Executive Manager Suite',
       categoryTag: 'COMPLETED EXECUTION',
@@ -83,13 +125,13 @@ export const BeforeAfterSection: React.FC = () => {
     {
       id: 'ba-11',
       title: 'Luxury Suite Blockwork Phase',
-      categoryTag: 'BEFORE WORK',
+      categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA11.jpeg',
       description: 'Raw concrete block partition layout prior to interior paneling and ceiling coving.'
     },
     {
       id: 'ba-12',
-      title: 'Luxury Suite Interior Handover',
+      title: 'Luxury Suite Building  Handover',
       categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA12.jpeg',
       description: 'Completed master suite with warm cove strip lights, padded walling, and modular wardrobes.'
@@ -97,7 +139,7 @@ export const BeforeAfterSection: React.FC = () => {
     {
       id: 'ba-13',
       title: 'Commercial Storefront Masonry Work',
-      categoryTag: 'BEFORE WORK',
+      categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA13.jpeg',
       description: 'Unfinished civil storefront layout prior to toughened glass glazing and metal trim.'
     },
@@ -164,9 +206,7 @@ export const BeforeAfterSection: React.FC = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${
-                    item.categoryTag === 'BEFORE WORK' ? 'filter grayscale contrast-105' : 'filter contrast-[1.02]'
-                  }`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity" />
 
