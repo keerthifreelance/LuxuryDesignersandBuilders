@@ -534,16 +534,16 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-32',
-    title: 'Modern Bedroom Interior 3',
+    title: 'Modern TV With Simple Wall Panel Setup',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR3.jpeg',
-    description: 'Master bedroom styling showcasing custom upholstered headboards, bedside table integration, and elegant cove lighting.',
-    details: { area: '750 Sq.Ft', duration: '2.5 Months', style: 'Nordic Zen' }
+    description: 'Minimalist TV setup with clean wall panels, integrated cable management, and ambient LED backlighting for a modern look.',
+    details: { area: '250 Sq.Ft', duration: '1.5 Months', style: 'Minimalist Modern' }
   },
   {
     id: 'proj-33',
-    title: 'Bespoke Wardrobe & Dressing 4',
+    title: 'Dental Clinic Interior',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR4.jpeg',
@@ -561,7 +561,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-35',
-    title: 'Compact Dining Space Styling 6',
+    title: 'Unique TV Unit Design',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR6.jpeg',
@@ -570,7 +570,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-36',
-    title: 'Elegant Foyer Partition 7',
+    title: 'Simple TV Unit Design With Wall Panel',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR7.jpeg',
@@ -579,25 +579,25 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-37',
-    title: 'Bespoke Kids Bedroom Layout 8',
+    title: 'TV Unit Set up With Wall Panel',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR8.jpeg',
-    description: 'Vibrant kids bedroom styling with built-in study desks, integrated bookshelves, and whimsical geometric wall patterns.',
+    description: 'Vibrant TV setup with wall paneling, integrated TV set up, and  wall panels.',
     details: { area: '600 Sq.Ft', duration: '2 Months', style: 'Playful Modern' }
   },
   {
     id: 'proj-38',
-    title: 'Modular Kitchen-Dining Partition 9',
+    title: 'Wall Panel TV Unit Strip Light Elegant',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR9.jpeg',
-    description: 'Open-concept partition layout dividing kitchen and dining space using glass partitions and wooden louvers.',
+    description: 'Elegant living hall with feature wall paneling, integrated LED strip lights, and custom TV console storage.',
     details: { area: '500 Sq.Ft', duration: '2 Months', style: 'Contemporary Open' }
   },
   {
     id: 'proj-39',
-    title: 'Modern Study Room Interior 10',
+    title: 'Modern TV Unit Interior',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR10.jpeg',
@@ -606,7 +606,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-40',
-    title: 'Sleek Living Hall Vanity Design 11',
+    title: 'Sleek Living Hall Vanity Design',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR11.jpeg',
@@ -615,7 +615,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-42',
-    title: 'Elite Executive Office Lounge 13',
+    title: 'Elite Executive Hall Lounge',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR13.jpeg',
@@ -624,7 +624,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-43',
-    title: 'Contemporary Hall Showcase 14',
+    title: 'Clinic With Bed Test',
     category: 'INTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/INTERIOR14.jpeg',
@@ -796,7 +796,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-kit-3',
-    title: 'Matte Finish Charcoal Modular Kitchen',
+    title: 'Matte Finish Charcoal Modular Kitchen & Dining',
     category: 'KITCHEN',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/KITCHEN3.jpeg',
@@ -805,7 +805,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-kit-4',
-    title: 'Warm Teak Wood Parallel Kitchen',
+    title: 'Warm Teak Wood Parallel Kitchen & Dining',
     category: 'KITCHEN',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/KITCHEN4.jpeg',
@@ -814,7 +814,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 'proj-kit-5',
-    title: 'High-Gloss White & Gold Modular Kitchen',
+    title: 'High-Gloss White & Gold Modular Kitchen & Dining',
     category: 'KITCHEN',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/KITCHEN5.jpeg',
