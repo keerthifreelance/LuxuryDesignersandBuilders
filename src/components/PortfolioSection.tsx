@@ -33,13 +33,15 @@ export const PortfolioSection: React.FC = () => {
     return () => window.removeEventListener('setPortfolioCategory', handleCategoryChange);
   }, []);
 
-  const categories = ['ALL', 'RESIDENTIAL', 'INTERIOR', 'HALL', 'CEILING', 'KITCHEN', 'BEDROOM', 'EXTERIOR', 'COMMERCIAL'];
+  const categories = ['ALL', 'VIDEOS', 'RESIDENTIAL', 'INTERIOR', 'HALL', 'CEILING', 'KITCHEN', 'BEDROOM', 'EXTERIOR', 'COMMERCIAL'];
 
   const filteredProjects = activeCategory === 'ALL'
     ? PROJECTS
-    : activeCategory === 'RESIDENTIAL'
-      ? PROJECTS.filter((p) => p.id !== 'proj-video-1' && (p.category === 'RESIDENTIAL' || p.category === 'EXTERIOR'))
-      : PROJECTS.filter((p) => p.id !== 'proj-video-1' && p.category === activeCategory);
+    : activeCategory === 'VIDEOS'
+      ? PROJECTS.filter((p) => p.category === 'VIDEOS' || !!p.videoUrl)
+      : activeCategory === 'RESIDENTIAL'
+        ? PROJECTS.filter((p) => p.category === 'RESIDENTIAL' || p.category === 'EXTERIOR')
+        : PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
     <section id="projects" className="py-28 md:py-36 bg-[#0A0A0A] text-[#F5F5F5] border-t border-white/10">
@@ -132,19 +134,11 @@ export const PortfolioSection: React.FC = () => {
                   {project.videoUrl ? 'WALKTHROUGH VIDEO' : project.category}
                 </span>
 
-                {/* Side Image Badge Indicator */}
-                {!project.videoUrl && (project.sideImage || project.renderImage || (project.galleryImages && project.galleryImages.length > 0)) && (
-                  <span className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold px-2 py-1 uppercase flex items-center space-x-1 pointer-events-none z-10">
-                    <span className="material-symbols-outlined text-xs text-[#C5A059]">collections</span>
-                    <span>VIEWS AVAILABLE</span>
-                  </span>
-                )}
-
                 {/* Hover Badge */}
                 {!project.videoUrl && (
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
                     <span className="px-5 py-2.5 bg-[#C5A059] text-black text-xs font-bold tracking-widest uppercase">
-                      VIEW PROJECT & VIEWS
+                      VIEW PROJECT
                     </span>
                   </div>
                 )}
@@ -220,11 +214,11 @@ export const PortfolioSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Side Images, Video & Gallery Thumbnails Selector */}
-            {activeModalProject && (
+            {/* Video, Side Image, 3D Render & Gallery Thumbnails Selector */}
+            {activeModalProject && (activeModalProject.videoUrl || activeModalProject.sideImage || activeModalProject.renderImage || (activeModalProject.galleryImages && activeModalProject.galleryImages.length > 0)) && (
               <div className="space-y-2">
                 <span className="text-[10px] font-bold tracking-[0.2em] text-[#C5A059] uppercase block">
-                  AVAILABLE VIEWS & SIDE IMAGES (CLICK TO SWITCH):
+                  AVAILABLE VIEWS (CLICK TO SWITCH):
                 </span>
                 <div className="flex items-center space-x-3 overflow-x-auto pb-2 scrollbar-none">
                   {/* Main View Thumbnail */}
@@ -257,7 +251,7 @@ export const PortfolioSection: React.FC = () => {
                     </button>
                   )}
 
-                  {/* Dedicated Side Image View Thumbnail if exists */}
+                  {/* Dedicated Side Image View Thumbnail */}
                   {activeModalProject.sideImage && (
                     <button
                       onClick={() => setActiveModalImage(activeModalProject.sideImage!)}
@@ -268,7 +262,7 @@ export const PortfolioSection: React.FC = () => {
                     >
                       <img src={activeModalProject.sideImage} alt="Side View" className="w-full h-full object-cover" />
                       <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-[#C5A059] uppercase">
-                        SIDE VIEW 1
+                        SIDE VIEW
                       </span>
                     </button>
                   )}
@@ -289,115 +283,22 @@ export const PortfolioSection: React.FC = () => {
                     </button>
                   )}
 
-                  {/* 5 to 10 Category Side Images Thumbnails */}
-                  {(() => {
-                    let sideList: string[] = [];
-                    if (activeModalProject.galleryImages && activeModalProject.galleryImages.length > 0) {
-                      sideList = activeModalProject.galleryImages;
-                    } else {
-                      switch (activeModalProject.category) {
-                        case 'INTERIOR':
-                          sideList = [
-                            '/images/pics/workpics/INTERIOR1.jpeg',
-                            '/images/pics/workpics/INTERIOR2.jpeg',
-                            '/images/pics/workpics/INTERIOR3.jpeg',
-                            '/images/pics/workpics/INTERIOR4.jpeg',
-                            '/images/pics/workpics/INTERIOR5.jpeg',
-                            '/images/pics/workpics/INTERIOR6.jpeg',
-                            '/images/pics/workpics/INTERIOR7.jpeg',
-                            '/images/pics/workpics/INTERIOR8.jpeg',
-                            '/images/pics/workpics/INTERIOR9.jpeg',
-                            '/images/pics/workpics/INTERIOR10.jpeg'
-                          ];
-                          break;
-                        case 'EXTERIOR':
-                        case 'RESIDENTIAL':
-                          sideList = [
-                            '/images/pics/workpics/EXTERIOR15.jpeg',
-                            '/images/pics/workpics/EXTERIOR16.jpeg',
-                            '/images/pics/workpics/EXTERIOR17side.jpeg',
-                            '/images/pics/workpics/EXTERIOR18side.jpeg',
-                            '/images/pics/workpics/EXTERIOR21.png',
-                            '/images/pics/workpics/EXTERIOR22.png',
-                            '/images/pics/workpics/EXTERIOR23.jpeg',
-                            '/images/pics/workpics/EXTERIOR24.jpeg',
-                            '/images/pics/workpics/EXTERIOR25.jpeg',
-                            '/images/pics/workpics/EXTERIOR26.png'
-                          ];
-                          break;
-                        case 'CEILING':
-                          sideList = [
-                            '/images/pics/workpics/CEILING1.jpeg',
-                            '/images/pics/workpics/CEILING2.jpeg',
-                            '/images/pics/workpics/CEILING3.jpeg',
-                            '/images/pics/workpics/CEILING4.jpeg',
-                            '/images/pics/workpics/CEILING5.jpeg',
-                            '/images/pics/workpics/CEILING6.jpeg',
-                            '/images/pics/workpics/CEILING7.jpeg',
-                            '/images/pics/workpics/CEILING8.jpeg',
-                            '/images/pics/workpics/CEILING9.jpeg',
-                            '/images/pics/workpics/CEILING10.jpeg'
-                          ];
-                          break;
-                        case 'KITCHEN':
-                          sideList = [
-                            '/images/pics/workpics/KITCHEN1.jpeg',
-                            '/images/pics/workpics/KITCHEN2.jpeg',
-                            '/images/pics/workpics/KITCHEN3.jpeg',
-                            '/images/pics/workpics/KITCHEN4.jpeg',
-                            '/images/pics/workpics/KITCHEN5.jpeg',
-                            '/images/pics/workpics/KITCHEN6.jpeg'
-                          ];
-                          break;
-                        case 'BEDROOM':
-                          sideList = [
-                            '/images/pics/workpics/BEDROOM1.jpeg',
-                            '/images/pics/workpics/BEDROOM2.jpeg',
-                            '/images/pics/workpics/BEDROOM3.jpeg',
-                            '/images/pics/workpics/INTERIOR4.jpeg',
-                            '/images/pics/workpics/INTERIOR7.jpeg'
-                          ];
-                          break;
-                        case 'HALL':
-                          sideList = [
-                            '/images/pics/workpics/HALL1.jpeg',
-                            '/images/pics/workpics/HALL2.jpeg'
-                          ];
-                          break;
-                        case 'COMMERCIAL':
-                          sideList = [
-                            '/images/pics/workpics/COMMERCIAL1.jpeg',
-                            '/images/pics/workpics/COMMERCIAL2.jpeg',
-                            '/images/pics/workpics/COMMERCIAL3.jpeg',
-                            '/images/pics/workpics/COMMERCIAL4.jpeg',
-                            '/images/pics/workpics/COMMERCIAL5.jpeg',
-                            '/images/pics/workpics/COMMERCIAL6.png',
-                            '/images/pics/workpics/COMMERCIAL7.png'
-                          ];
-                          break;
-                      }
-                    }
-
-                    const filteredSideList = sideList.filter(
-                      (url) => url !== activeModalProject.image && url !== activeModalProject.sideImage && url !== activeModalProject.renderImage
-                    );
-
-                    return filteredSideList.map((imgUrl, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveModalImage(imgUrl)}
-                        className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 ${activeModalImage === imgUrl
-                            ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
-                            : 'border-white/20 opacity-60 hover:opacity-100'
-                          }`}
-                      >
-                        <img src={imgUrl} alt={`Side View ${idx + 2}`} className="w-full h-full object-cover" />
-                        <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-white uppercase">
-                          SIDE VIEW {idx + 2}
-                        </span>
-                      </button>
-                    ));
-                  })()}
+                  {/* Gallery Images if present */}
+                  {activeModalProject.galleryImages && activeModalProject.galleryImages.map((imgUrl, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveModalImage(imgUrl)}
+                      className={`relative w-24 h-20 border-2 overflow-hidden transition-all flex-shrink-0 ${activeModalImage === imgUrl
+                          ? 'border-[#C5A059] scale-105 shadow-[0_0_15px_rgba(197,160,89,0.5)]'
+                          : 'border-white/20 opacity-60 hover:opacity-100'
+                        }`}
+                    >
+                      <img src={imgUrl} alt={`Gallery View ${idx + 1}`} className="w-full h-full object-cover" />
+                      <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-bold text-center py-0.5 text-white uppercase">
+                        VIEW {idx + 1}
+                      </span>
+                    </button>
+                  ))}
                 </div>
               </div>
             )}

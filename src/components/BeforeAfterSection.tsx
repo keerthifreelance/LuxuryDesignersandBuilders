@@ -12,14 +12,14 @@ export const BeforeAfterSection: React.FC = () => {
   const baImages: BAImageItem[] = [
     {
       id: 'ba-1',
-      title: 'Living Room Site Work',
+      title: 'Elevation Site Work',
       categoryTag: 'BEFORE WORK',
       image: '/images/pics/workpics/BA1.jpeg',
       description: 'Initial site condition featuring raw masonry walls, dim ambient light, and structural layout prep.'
     },
     {
       id: 'ba-2',
-      title: 'Living Room Fluted Lounge',
+      title: 'Elevation Fluted Lounge',
       categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA2.jpeg',
       description: 'Handcrafted fluted wooden partition paneling with indirect warm LED coving and luxury seating.'

@@ -89,7 +89,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             <p className="text-base text-white/60 leading-relaxed font-light">
-              From the first idea to the final detail, let's create a space designed around you. Contact our principal design team in Aruppukkottai for a personalized site consultation.
+              From the first idea to the final detail, let's create a space designed around you. Contact our design team in Aruppukkottai for a personalized site consultation.
             </p>
 
             <div className="space-y-6 pt-4 border-t border-white/10">

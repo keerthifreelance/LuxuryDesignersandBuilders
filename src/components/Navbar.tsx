@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
               />
               <div className="flex flex-col text-left">
                 <span className="font-serif text-[10px] min-[375px]:text-xs min-[410px]:text-sm sm:text-lg md:text-xl font-semibold tracking-tight text-white transition-colors duration-300 leading-none block mb-1">
-                  <span className="text-[#C5A059]">LUXURY DESIGNERS</span> & BUILDERS
+                  <span className="text-[#C5A059]">LUXURY DESIGNERS & BUILDERS</span>
                 </span>
                 <span className="text-[6px] min-[375px]:text-[7px] min-[410px]:text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] uppercase text-white/60 transition-colors duration-300 leading-none block">
                   Aruppukkottai • Architecture & Interiors

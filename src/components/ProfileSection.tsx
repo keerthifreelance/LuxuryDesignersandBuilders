@@ -124,7 +124,7 @@ export const ProfileSection: React.FC = () => {
                 "{FOUNDER_INFO.quote}"
               </p>
               <p className="text-xs font-bold tracking-widest text-[#C5A059] uppercase font-mono">
-                — {FOUNDER_INFO.name}, PRINCIPAL ENGINEER
+                — {FOUNDER_INFO.name}
               </p>
             </div>
 

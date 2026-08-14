@@ -1,7 +1,7 @@
 export interface ProjectItem {
   id: string;
   title: string;
-  category: 'RESIDENTIAL' | 'INTERIOR' | 'CEILING' | 'KITCHEN' | 'KITCHEN&DINING' | 'BEDROOM' | 'EXTERIOR' | 'COMMERCIAL' | 'CONSTRUCTION' | 'HALL';
+  category: 'RESIDENTIAL' | 'INTERIOR' | 'CEILING' | 'KITCHEN' | 'KITCHEN&DINING' | 'BEDROOM' | 'EXTERIOR' | 'COMMERCIAL' | 'CONSTRUCTION' | 'HALL' | 'VIDEOS';
   location: string;
   image: string;
   sideImage?: string;

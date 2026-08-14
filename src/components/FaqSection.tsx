@@ -35,7 +35,7 @@ export const FaqSection: React.FC = () => {
     },
     {
       question: 'How can I contact your interior design team in Aruppukkottai?',
-      answer: 'You can contact us via phone at +91 96004 70328, via email, or by filling out our site consultation form on this website. Our principal office is located in 5/377, Lakshmi Nagar, West St, Kalloorani, Aruppukattai, Virudhunagar (dt), Tamil Nadu 626105.'
+      answer: 'You can contact us via phone at +91 96004 70328, via email, or by filling out our site consultation form on this website. Our office is located in 5/377, Lakshmi Nagar, West St, Kalloorani, Aruppukattai, Virudhunagar (dt), Tamil Nadu 626105.'
     }
   ];
 
