@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 
+export type BeforeSubCategory =
+  | 'Residencial 2d floor plan'
+  | 'Commercial 2d floor plan'
+  | 'Working 2d & 3d drawing'
+  | 'Approval 2d floor plan';
+
 interface BAImageItem {
   id: string;
   title: string;
   categoryTag: 'BEFORE WORK' | 'COMPLETED EXECUTION';
+  subCategory?: BeforeSubCategory;
   image: string;
   description: string;
 }
 
 export const BeforeAfterSection: React.FC = () => {
   const baImages: BAImageItem[] = [
+    // --- COMPLETED EXECUTION ---
     {
       id: 'ba-1',
       title: 'Elevation Site Work',
@@ -23,69 +31,6 @@ export const BeforeAfterSection: React.FC = () => {
       categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA2.jpeg',
       description: 'Handcrafted fluted wooden partition paneling with indirect warm LED coving and luxury seating.'
-    },
-    {
-      id: 'ba-4',
-      title: '2D View Plan Layout',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/BA4.jpeg',
-      description: 'Vastu-compliant 2D architectural blueprint layout and structural floor plan design.'
-    },
-    {
-      id: '2d-plan-1',
-      title: '2D Architectural Floor Plan 1',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg1.png',
-      description: 'Precision Vastu-compliant 2D architectural blueprint layout and room dimensioning.'
-    },
-    {
-      id: '2d-plan-2',
-      title: '2D Architectural Floor Plan 2',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg2.png',
-      description: 'Detailed civil floor layout schematic featuring column positions and wall alignments.'
-    },
-    {
-      id: '2d-plan-3',
-      title: '2D Architectural Floor Plan 3',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg3.png',
-      description: 'Residential villa spatial distribution blueprint with electrical & plumbing routing.'
-    },
-    {
-      id: '2d-plan-4',
-      title: '2D Architectural Floor Plan 4',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg4.png',
-      description: 'Turnkey residential floor plan draft designed according to structural Vastu principles.'
-    },
-    {
-      id: '2d-plan-5',
-      title: '2D Architectural Floor Plan 5',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg5.png',
-      description: 'Ground floor conceptual plan featuring portico, living hall, kitchen, and stairwell details.'
-    },
-    {
-      id: '2d-plan-6',
-      title: '2D Architectural Floor Plan 6',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg6.jpeg',
-      description: 'Multi-story residential structural blueprint layout with dimensional setback markings.'
-    },
-    {
-      id: '2d-plan-7',
-      title: '2D Architectural Floor Plan 7',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg7.png',
-      description: 'Modern duplex bungalow floor plan layout detailing room clearance and doorway placements.'
-    },
-    {
-      id: '2d-plan-8',
-      title: '2D Architectural Floor Plan 8',
-      categoryTag: 'BEFORE WORK',
-      image: '/images/pics/workpics/2Dimg8.png',
-      description: 'Comprehensive civil construction 2D drawing ready for municipal approval.'
     },
     {
       id: 'ba-5',
@@ -149,22 +94,241 @@ export const BeforeAfterSection: React.FC = () => {
       categoryTag: 'COMPLETED EXECUTION',
       image: '/images/pics/workpics/BA14.jpeg',
       description: 'Finished retail commercial storefront with frameless glass facades and architectural lighting.'
+    },
+
+    // --- BEFORE WORK: Working 2d & 3d drawing ---
+    {
+      id: 'ba-4',
+      title: '2D VIEW PLAN LAYOUT',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/BA4.jpeg',
+      description: 'Vastu-compliant 2D architectural blueprint layout and structural floor plan design.'
+    },
+    {
+      id: '2d-plan-1',
+      title: 'WORKING 2D PLAN 1',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/2Dimg1.png',
+      description: 'Precision Vastu-compliant 2D architectural blueprint layout and room dimensioning.'
+    },
+    {
+      id: '2d-plan-2',
+      title: 'WORKING 2D PLAN 2',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/2Dimg2.png',
+      description: 'Detailed civil 2D layout schematic featuring column positions and wall alignments.'
+    },
+    {
+      id: '2d-plan-3',
+      title: 'WORKING 2D PLAN 3',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/2Dimg3.png',
+      description: 'Residential villa spatial distribution blueprint with electrical & plumbing routing.'
+    },
+    {
+      id: '2d-plan-4',
+      title: 'WORKING 2D PLAN 4',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/2Dimg4.png',
+      description: 'Turnkey residential 2D plan draft designed according to structural Vastu principles.'
+    },
+    {
+      id: '2d-plan-5',
+      title: 'WORKING 3D PLAN 1',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/3Dimg1.png',
+      description: 'Ground floor conceptual plan featuring portico, living hall, kitchen, and stairwell details.'
+    },
+    {
+      id: '2d-plan-6',
+      title: 'WORKING 3D PLAN 2',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/3Dimg2.png',
+      description: 'Multi-story residential structural blueprint layout with dimensional setback markings.'
+    },
+    {
+      id: '2d-plan-7',
+      title: 'WORKING 3D PLAN 3',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/3Dimg3.png',
+      description: 'Modern duplex bungalow floor plan layout detailing room clearance and doorway placements.'
+    },
+    {
+      id: '2d-plan-8',
+      title: 'WORKING 3D PLAN 4',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Working 2d & 3d drawing',
+      image: '/images/pics/workpics/3Dimg4.jpeg',
+      description: 'Comprehensive civil construction 3D drawing ready for municipal approval.'
+    },
+
+    // --- BEFORE WORK: APPROVAL 2D FLOOR PLAN ---
+    {
+      id: 'ba-approval-1',
+      title: 'APPROVED GROUND & FIRST FLOOR CONSTRUCTION 2D PLAN - 800sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Approval 2d floor plan',
+      image: '/images/pics/workpics/BA-APPROVAL2Dimg1-800sqft.jpeg',
+      description: '800 sq.ft municipal approval 2D floor plan drawing with boundary setback clearances and Vastu compliance.'
+    },
+    {
+      id: 'ba-approval-2',
+      title: 'APPROVED GROUND CONSTRUCTION 2D PLAN - 700sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Approval 2d floor plan',
+      image: '/images/pics/workpics/BA-APPROVAL2Dimg2-700sqft.jpeg',
+      description: '700 sq.ft residential DTCP / panchayat approval 2D blueprint layout with structural specifications.'
+    },
+    {
+      id: 'ba-approval-3',
+      title: 'APPROVED ROOF RESIDENTIAL BUILDING 2D PLAN IN GROUND FLOOR - 700sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Approval 2d floor plan',
+      image: '/images/pics/workpics/BA-APPROVAL2Dimg3-700sqft.jpeg',
+      description: '700 sq.ft compact residential approval 2D floor plan layout designed for statutory civil clearance.'
+    },
+
+    // --- BEFORE WORK: COMMERCIAL 2D FLOOR PLAN ---
+    {
+      id: 'ba-commercial-1',
+      title: 'RESTAURANT 2D PLAN-9000sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Commercial 2d floor plan',
+      image: '/images/pics/workpics/BA-COMMERCIAL2Dimg1-9000sqft.jpeg',
+      description: '9000 sq.ft large-scale commercial building 2D floor plan featuring retail spaces, zoning, and structural column grid.'
+    },
+    {
+      id: 'ba-commercial-2',
+      title: 'LODGE 2D PLAN-10000sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Commercial 2d floor plan',
+      image: '/images/pics/workpics/BA-COMMERCIAL2Dimg2-10000sqft.jpeg',
+      description: '10000 sq.ft multi-tier commercial complex 2D blueprint layout with parking, lift well, and fire safety access routes.'
+    },
+
+    // --- BEFORE WORK: RESIDENCIAL 2D FLOOR PLAN ---
+    {
+      id: 'ba-res-1',
+      title: 'CONCEPTUAL GROUND FLOOR 2D PLAN-1200sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg1-1200sqft.jpeg',
+      description: '1200 sq.ft residential 2D floor plan featuring master bedroom, living hall, kitchen, and Vastu orientation.'
+    },
+    {
+      id: 'ba-res-2',
+      title: 'CONCEPTUAL GROUND FLOOR 2D PLAN-320sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg2-320sqft.jpeg',
+      description: '320 sq.ft compact residential 2D layout designed for efficient space utilization and functional zoning.'
+    },
+    {
+      id: 'ba-res-3',
+      title: 'CONCEPTUAL GROUND FLOOR 2D PLAN MR-VEERAPANDI-616sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg3-616sqft.jpeg',
+      description: '616 sq.ft residential floor plan detailing room clearance, door placements, and structural wall alignment.'
+    },
+    {
+      id: 'ba-res-4',
+      title: 'CONCEPTUAL FIRST FLOOR 2D PLAN-700sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg4-700sqft.jpeg',
+      description: '700 sq.ft residential 2D blueprint layout with Vastu-compliant room arrangements.'
+    },
+    {
+      id: 'ba-res-5',
+      title: 'CONCEPTUAL GROUND FIRST & SECOND FLOOR 2D PLAN-840sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg5-840sqft.jpeg',
+      description: '840 sq.ft residential floor plan featuring portico, living hall, dining space, and stairwell details.'
+    },
+    {
+      id: 'ba-res-6',
+      title: 'CONCEPTUAL GROUND FLOOR 2D PLAN-1868sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg6-1868sqft.jpeg',
+      description: '1868 sq.ft spacious duplex residential villa 2D floor plan with double-height lounge and balcony.'
+    },
+    {
+      id: 'ba-res-7',
+      title: 'RESIDENCIAL BUILDING CONCEPTUAL PLAN-1200sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg7-1200sqft.jpeg',
+      description: '1200 sq.ft executive residential 2D plan blueprint engineered for maximum natural light and ventilation.'
+    },
+    {
+      id: 'ba-res-8',
+      title: 'RESIDENCIAL BUILDING CONCEPTUAL PLAN-1600sqft',
+      categoryTag: 'BEFORE WORK',
+      subCategory: 'Residencial 2d floor plan',
+      image: '/images/pics/workpics/BA-RESIDENCIAL2Dimg8-1600sqft.jpeg',
+      description: '1600 sq.ft modern villa floor plan layout detailing structural column grids and electrical routing.'
     }
   ];
 
   const [activeTab, setActiveTab] = useState<'ALL' | 'BEFORE WORK' | 'COMPLETED EXECUTION'>('ALL');
+  const [beforeSubCategory, setBeforeSubCategory] = useState<'ALL' | BeforeSubCategory>('ALL');
   const [selectedModalImage, setSelectedModalImage] = useState<BAImageItem | null>(null);
 
-  const filteredImages = activeTab === 'ALL'
-    ? baImages
-    : baImages.filter(item => item.categoryTag === activeTab);
+  const subCategoriesList: BeforeSubCategory[] = [
+    'Residencial 2d floor plan',
+    'Commercial 2d floor plan',
+    'Working 2d & 3d drawing',
+    'Approval 2d floor plan'
+  ];
+
+  const filteredImages = baImages.filter((item) => {
+    if (activeTab === 'COMPLETED EXECUTION') {
+      return item.categoryTag === 'COMPLETED EXECUTION';
+    }
+    if (activeTab === 'BEFORE WORK') {
+      if (beforeSubCategory === 'ALL') {
+        return item.categoryTag === 'BEFORE WORK';
+      }
+      return item.categoryTag === 'BEFORE WORK' && item.subCategory === beforeSubCategory;
+    }
+    // ALL tab
+    if (beforeSubCategory !== 'ALL') {
+      return item.categoryTag === 'BEFORE WORK' && item.subCategory === beforeSubCategory;
+    }
+    return true;
+  });
+
+  const handleMainTabChange = (tab: 'ALL' | 'BEFORE WORK' | 'COMPLETED EXECUTION') => {
+    setActiveTab(tab);
+    if (tab !== 'BEFORE WORK') {
+      setBeforeSubCategory('ALL');
+    }
+  };
+
+  const handleSubCategoryChange = (sub: 'ALL' | BeforeSubCategory) => {
+    setBeforeSubCategory(sub);
+    if (activeTab !== 'BEFORE WORK') {
+      setActiveTab('BEFORE WORK');
+    }
+  };
 
   return (
     <section id="before-after" className="py-28 md:py-36 bg-[#0E0E0E] text-[#F5F5F5] border-t border-white/10 relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 relative z-10">
-        
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
           <span className="text-xs font-bold tracking-[0.25em] text-[#C5A059] uppercase block">
             WORK IN PROGRESS & COMPLETED EXECUTIONS
           </span>
@@ -172,26 +336,49 @@ export const BeforeAfterSection: React.FC = () => {
             BEFORE & AFTER GALLERY
           </h2>
           <p className="text-sm sm:text-base text-white/60 leading-relaxed font-light">
-            Explore our site photos showcasing raw structural construction phases and completed luxury handovers.
+            Explore our site photos showcasing 2D blueprints, approval plans, structural construction phases, and completed luxury handovers.
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex items-center justify-center space-x-3 mb-12">
+        {/* Main Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
           {(['ALL', 'BEFORE WORK', 'COMPLETED EXECUTION'] as const).map((tab) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 interactive-el ${
-                activeTab === tab
+              onClick={() => handleMainTabChange(tab)}
+              className={`px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 interactive-el ${activeTab === tab
                   ? 'bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black shadow-[0_0_15px_rgba(197,160,89,0.4)]'
                   : 'bg-[#181818] text-white/70 hover:text-white border border-white/10 hover:border-[#C5A059]/40'
-              }`}
+                }`}
             >
               {tab === 'ALL' ? `ALL PHOTOS (${baImages.length})` : tab}
             </button>
           ))}
         </div>
+
+        {/* Sub-Category Bar for BEFORE WORK */}
+        {(activeTab === 'BEFORE WORK' || beforeSubCategory !== 'ALL') && (
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-12 p-4 bg-[#141414] border border-[#C5A059]/30 rounded-lg max-w-4xl mx-auto shadow-inner animate-fade-in">
+            <span className="w-full text-center text-[11px] font-mono font-semibold tracking-widest text-[#C5A059] uppercase mb-1">
+              BEFORE WORK CATEGORIES:
+            </span>
+            {subCategoriesList.map((sub) => {
+              const count = baImages.filter(i => i.categoryTag === 'BEFORE WORK' && i.subCategory === sub).length;
+              return (
+                <button
+                  key={sub}
+                  onClick={() => handleSubCategoryChange(sub)}
+                  className={`px-4 py-2 text-xs font-semibold tracking-wider transition-all rounded ${beforeSubCategory === sub
+                      ? 'bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black font-bold shadow-[0_0_10px_rgba(197,160,89,0.3)]'
+                      : 'bg-[#1E1E1E] text-white/80 hover:text-white hover:bg-[#282828] border border-white/10'
+                    }`}
+                >
+                  {sub} ({count})
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* BA Photo Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -202,7 +389,7 @@ export const BeforeAfterSection: React.FC = () => {
               className="group relative bg-[#121212] border border-white/10 overflow-hidden cursor-pointer explore-el hover:border-[#C5A059]/50 transition-all duration-500 shadow-xl"
             >
               {/* Photo Frame */}
-              <div className="relative h-72 sm:h-80 overflow-hidden">
+              <div className="relative h-72 sm:h-80 overflow-hidden bg-black/40">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -210,16 +397,22 @@ export const BeforeAfterSection: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity" />
 
-                {/* Status Badge */}
-                <span
-                  className={`absolute top-4 left-4 text-[10px] font-mono font-bold px-3 py-1 uppercase tracking-widest ${
-                    item.categoryTag === 'BEFORE WORK'
-                      ? 'bg-black/80 text-white border border-white/20'
-                      : 'bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black font-bold shadow-lg'
-                  }`}
-                >
-                  {item.categoryTag}
-                </span>
+                {/* Status & Subcategory Badges */}
+                <div className="absolute top-4 left-4 flex flex-col gap-1.5 items-start max-w-[85%]">
+                  <span
+                    className={`text-[10px] font-mono font-bold px-3 py-1 uppercase tracking-widest ${item.categoryTag === 'BEFORE WORK'
+                        ? 'bg-black/80 text-white border border-white/20'
+                        : 'bg-gradient-to-r from-[#DFBA67] via-[#C5A059] to-[#997328] text-black font-bold shadow-lg'
+                      }`}
+                  >
+                    {item.categoryTag}
+                  </span>
+                  {item.subCategory && (
+                    <span className="text-[9px] font-semibold px-2.5 py-0.5 bg-[#C5A059]/90 text-black uppercase tracking-wider rounded-sm shadow">
+                      {item.subCategory}
+                    </span>
+                  )}
+                </div>
 
                 {/* Hover Click Badge */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
@@ -241,6 +434,12 @@ export const BeforeAfterSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {filteredImages.length === 0 && (
+          <div className="text-center py-16 text-white/50">
+            No items found for the selected category.
+          </div>
+        )}
       </div>
 
       {/* Photo Lightbox Modal with Full Photo Scroll View & Navigation */}
@@ -255,10 +454,20 @@ export const BeforeAfterSection: React.FC = () => {
               <span className="material-symbols-outlined text-xl">close</span>
             </button>
 
-            <div className="space-y-1">
-              <span className="text-xs font-mono font-bold tracking-widest text-[#C5A059] uppercase">
-                {selectedModalImage.categoryTag}
-              </span>
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs font-mono font-bold tracking-widest text-[#C5A059] uppercase">
+                  {selectedModalImage.categoryTag}
+                </span>
+                {selectedModalImage.subCategory && (
+                  <>
+                    <span className="text-white/30">•</span>
+                    <span className="text-xs font-medium text-[#DFBA67] uppercase tracking-wider bg-[#C5A059]/10 px-2.5 py-0.5 border border-[#C5A059]/30 rounded">
+                      {selectedModalImage.subCategory}
+                    </span>
+                  </>
+                )}
+              </div>
               <h3 className="font-serif text-3xl sm:text-4xl font-medium text-white">
                 {selectedModalImage.title}
               </h3>
@@ -320,3 +529,4 @@ export const BeforeAfterSection: React.FC = () => {
     </section>
   );
 };
+
