@@ -61,10 +61,6 @@ export const CinematicHero: React.FC = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <h1 className="sr-only">
-        Luxury Designers & Builders — Interior Design & Architecture in Aruppukkottai
-      </h1>
-
       {/* Top Slides Sliding Container */}
       <div
         className="absolute inset-0 flex transition-transform duration-700 ease-out w-full h-full z-0"
@@ -110,12 +106,12 @@ export const CinematicHero: React.FC = () => {
           </span>
 
           {/* Headline with Gold Accent Contrast */}
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1] [text-shadow:_0_4px_20px_rgba(0,0,0,0.95)]">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1] [text-shadow:_0_4px_20px_rgba(0,0,0,0.95)]">
             {HERO_SLIDES[currentSlideIndex].headlineMain}{' '}
             <span className="text-[#C5A059] font-normal block sm:inline">
               {HERO_SLIDES[currentSlideIndex].headlineGold}
             </span>
-          </h2>
+          </h1>
 
           {/* Subhead with High Legibility Contrast Shadow */}
           <p className="text-sm sm:text-lg md:text-xl font-normal text-white/95 max-w-2xl mx-auto font-sans tracking-wide [text-shadow:_0_2px_12px_rgba(0,0,0,0.95)]">
