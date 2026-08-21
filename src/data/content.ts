@@ -701,6 +701,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR17.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR17side.jpeg',
     description: 'A multi-perspective luxury villa elevation showcasing warm architectural lighting, parametric louvers, and a complete side elevation view.',
     details: { area: '4,800 Sq.Ft', duration: '12 Months', style: 'Modern Vernacular' }
   },
@@ -710,6 +711,7 @@ export const PROJECTS: ProjectItem[] = [
     category: 'EXTERIOR',
     location: 'Aruppukkottai, TN',
     image: '/images/pics/workpics/EXTERIOR18.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR18side.jpeg',
     description: 'Double-height living space facade detailing with floating balconies, teak wood accents, and side perspective layout.',
     details: { area: '5,100 Sq.Ft', duration: '14 Months', style: 'Contemporary Luxury' }
   },
@@ -946,6 +948,26 @@ export const PROJECTS: ProjectItem[] = [
     image: '/images/pics/workpics/EXTERIOR28.jpeg',
     description: 'Architectural masterpiece featuring double-height entrance columns, frameless glass balconies, and warm sconces.',
     details: { area: '6,000 Sq.Ft', duration: '17 Months', style: 'Opulent Luxury' }
+  },
+  {
+    id: 'proj-ext-45',
+    title: 'Latest Elevation Gray Exterior  ',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR45.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR45side.jpeg',
+    description: 'Modern elevation facade design featuring slatted dark grey wall paneling, central grey texture tower, pink upper terrace accent, and dedicated side perspective view.',
+    details: { area: '3,600 Sq.Ft', duration: '10 Months', style: 'Contemporary Geometric Elevation' }
+  },
+  {
+    id: 'proj-ext-46',
+    title: 'Latest Elevation Turquoise Exterior ',
+    category: 'EXTERIOR',
+    location: 'Aruppukkottai, TN',
+    image: '/images/pics/workpics/EXTERIOR46.jpeg',
+    sideImage: '/images/pics/workpics/EXTERIOR46side.jpeg',
+    description: 'Bespoke residential elevation design with warm wood finish cladding, vibrant turquoise textured tower, teal entry accent frame, and side perspective view.',
+    details: { area: '3,800 Sq.Ft', duration: '11 Months', style: 'Contemporary Villa Elevation' }
   }
 ];
 
